@@ -15,4 +15,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
+
+});
+ 
+Route::get('/primary', function () {
+    return view('pages.primary');
+
+});
+
+Route::get('/secondary', function(){
+    return view('pages.secondary');
+});
+
+Route::get('/tertiary', function(){
+    return view('pages.tertiary');
+});
+
+Route::get('/library', function(){
+    return view('pages.library');
+});
+
+Route::get('/about', function(){
+    return view('pages.about');
 });
