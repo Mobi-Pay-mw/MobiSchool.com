@@ -13,6 +13,6 @@ class Institute extends Model
     public function faculty()
     {
         # code...
-        return $this->hasMany(Institute::class);
+        return $this->hasMany(Faculty::class);
     }
 }

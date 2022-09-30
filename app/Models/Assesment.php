@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Assesment extends Model
 {
     use HasFactory;
+
+    public function module()
+    {
+        return $this->belongsTo(Modules::class);
+    }
+
+    public function grade()
+    {
+        return $this->hasMany(Grade::class);
+    }
 }
