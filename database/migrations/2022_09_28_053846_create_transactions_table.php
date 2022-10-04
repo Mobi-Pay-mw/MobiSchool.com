@@ -27,7 +27,8 @@ return new class extends Migration
             $table->foreign('library_id')
                 ->references('id')
                 ->on('libraries')
-            ; 
+            ;
+            $table->enum("type", ["borrow", "buy", "loan"]);
         });
     }
 

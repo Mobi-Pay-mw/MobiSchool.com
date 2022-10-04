@@ -4,18 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Curriculum extends Model
 {
     use HasFactory;
 
-    public function classe ()
+    public function classe (): BelongsTo
     {
-        return $this->belongsToMany(Classroom::class);
+        return $this->belongsTo(Classroom::class);
     }
 
-    public function course()
+    public function courses():BelongsToMany
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany(Course::class);
     }
 }

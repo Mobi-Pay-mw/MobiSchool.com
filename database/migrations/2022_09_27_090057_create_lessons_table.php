@@ -28,6 +28,8 @@ return new class extends Migration
                 ->references('id')
                 ->on('educators')
             ; 
+
+            $table->string("name");
         });
     }
 
