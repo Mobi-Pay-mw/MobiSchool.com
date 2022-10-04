@@ -22,6 +22,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('courses')
             ;
+            $table->string("name");
         });
     }
 

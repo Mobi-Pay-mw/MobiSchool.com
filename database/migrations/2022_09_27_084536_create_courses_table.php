@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            // many to many relationship with curriculum
+            $table->string("name");
         });
     }
 

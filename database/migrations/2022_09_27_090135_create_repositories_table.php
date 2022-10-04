@@ -21,7 +21,8 @@ return new class extends Migration
             $table->foreign('lesson_id')
                 ->references('id')
                 ->on('lessons')
-            ; 
+            ;
+            $table->string("name");
         });
     }
 

@@ -17,11 +17,13 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->unsignedBigInteger('module_id');
-            $table->foreign('module_id')
+            $table->unsignedBigInteger('lesson_id');
+            $table->foreign('lesson_id')
                 ->references('id')
-                ->on('modules')
+                ->on('lessons')
             ; 
+
+            $table->string("name");
         });
     }
 

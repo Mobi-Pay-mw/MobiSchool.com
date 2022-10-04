@@ -23,6 +23,8 @@ return new class extends Migration
                 ->on('programmes')
             ;
 
+            $table->string("name");
+
             
         });
     }

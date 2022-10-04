@@ -21,7 +21,9 @@ return new class extends Migration
             $table->foreign('faculty_id')
                 ->references('id')
                 ->on('faculties')
-            ; 
+            ;
+
+            $table->string("name");
         });
     }
 
