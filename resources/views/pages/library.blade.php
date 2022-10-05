@@ -13,6 +13,7 @@
  <link rel="stylesheet" href="assets/css/jquery-ui.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/slicknav.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+ <link rel="stylesheet" href="assets/css/w3css/w3.css" type="text/css">
  
  <!-- Js Plugins -->
  <script src="assets/js/jquery-3.3.1.min.js"></script>
@@ -27,6 +28,43 @@
  <script src="assets/js/main.js"></script>
  
 </style>
+
+<style>
+
+  /* Style the tab */
+  .w3-sidebar {
+  background-color: #f1f1f1;
+  width:relative;
+  max-height:480px;
+
+  }
+
+  /* Style the buttons that are used to open the tab content */
+  .w3-sidebar.w3-button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  }
+
+  /* Change background color of buttons on hover */
+  .w3-sidebar button:hover {
+  background-color: #ddd;
+  }
+
+  /* Create an active/current "tab button" class */
+  .w3-sidebar button.active {
+  background-color: #ccc;
+  }
+
+  
+</style>
 <body>
 
 <header   class="header-section ">
@@ -35,19 +73,20 @@
     </div>
 
     <div class="header-top nav-item">
-        <!--logo-->
-        <div class="col-lg-2 col-md-2 ">
+      <!--logo-->
+
+      <div class="w3-left">
         <div class="logo">
-        <a href="">MobiSchool</a>
+        <a style='color:#ffffff;' href="">MobiSchool</a>
         </div>
     </div>
       
         
-    <div class="header-top nav-item">
-        <!--logo-->
+    
+        <!--home -icon-->
         <div class="">
         <div class="">
-        <a href="/welcome" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
+        <a href="{{URL::to('/homepage')}}" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
         </div>
     </div>
 
@@ -92,112 +131,153 @@
 
 
   <!--log in & sign up -->
-  <div class="logdiv"> 
-              <button onclick="#" class="login-panel"><i class="fa fa-user"></i>Login</button>
-              <button type="button">Sign Up</button>
-            </div>
-
+  
  
+  <div class="logdiv w3-dropdown-hover">
+    <button onclick="myDropFunc()" class="w3-button w3-circle w3-light-gray"><i class="fa fa-user"></i></button>
+    <div id="demoDrop" class="w3-dropdown-content w3-bar-block w3-deep-orange w3-card">
+    <a href="#" class="w3-bar-item w3-button">view profile</a>
+    <a href="{{URL::to('/stdashboard')}}" class="w3-bar-item w3-button">Dashboard</a>
+    <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
+    </div>
+  </div>
 
 </header>
 
-<!-- Advert1 section -->
-
-
-<!-- PrimarySchool categories section -->
-<br>
-<div style='background-color:#' class="container">
-              <div class="row">
-                  <div class="">
-                  <h2> MobiSchool Library</h2> 
-
-                      <p>As a mission-driven organization, we are relentlessly pursuing our vision of a world
-                         where every learner can access education to unlock their potential,
-                          without the barriers of cost or location. [put more content] </p><br>
-                <div class="text-center">
-                    
-                
-                </div> 
-                    </div>
-            </div>
+<!-- Page Content -->
+<div class="w3-container">
+  <h2>Welcome  to MobiSchool Library</h2>
 </div>
 <br>
 
-
-<!-- footer -->
-
-<footer class="footer-section">
-
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-3">
-              <div class="footer-left">
-                  <div class="footer-widget">
-                      <h5>ADDRESS</h5>
-                  
-                  <ul>
-                      <li>Shop No. 22,</li>
-                      <li>Sana Supermarket Complex,</li>
-                      <li>Area 47,</li>
-                      <li>Lilongwe</li> <br>
-                      <li> <a href="#"><i class="fa fa-envelope"></i> info@mobischool.mw </a></li>
-                      <li class="fa fa-phone"> +265310001919</li>
-                  </ul>
-                  
-              </div>
-              </div>
-          </div>
-          <div class="col-lg-2 offset-lg-1">
-              <div class="footer-widget">
-                  <h5>MobiSchool</h5>
-                  <ul>
-                      <li><a href="#">mission statement</a></li>
-                      <li><a href="#">About us</a></li>
-                      <li><a href="#">Terms & Conditions</a></li>
-                      <li><a href="#">Privacy & Policy</a></li>
-                      
-                      
-                  </ul>
-              </div>
-          </div>
-          <div class="col-lg-2">
-              <div class="footer-widget">
-                  <h5>My Account</h5>
-                  <ul>
-                      <li><a href="#">Log In</a></li>
-                      <li><a href="#">Sign Up</a></li>
-                  </ul>
-              </div>
-          </div>
-          <div class="col-lg-4">
-              <div class="footer-widget">
-                  <h5>Connect With Us</h5>
-                  <ul>
-                      <li><a href="#"><i class="fa fa-facebook"></i> facebook</a></li>
-                      <li><a href="#"><i class="fa fa-instagram"></i> instagram</a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i> twitter</a></li>
-                      <li><a href="#"><i class="fa fa-youtube"></i> youtube</a></li>
-                  </ul>
-                  </div>
-              </div>
-      </div>
+<div class="w3-sidebar w3-bar-block w3-light-grey w3-card">
+    <h2 class="w3-center"> Catalogue</h2><br><br>
+  <button class="w3-bar-item w3-button tablinks" onclick="myAccFunc()">eBooks
+  <i class="fa fa-caret-down"></i></button>
+  <div id="demoAcc" class="w3-hide w3-white w3-card">
+    <button  class="w3-bar-item w3-button" onclick="openCity(event, 'bookPrimary')">Primary School</button>
+    <button  class="w3-bar-item w3-button" onclick="openCity(event, 'bookSecondary')">Secondary School</button>
+    <button  class="w3-bar-item w3-button" onclick="openCity(event, 'bookTertiary')">Tertiary School</button>
   </div>
-  <div class="copyright-reserved">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12">
-                  <div class="copyright-text">
-
-                     
-Copyright &copy;2022 MobiSchool. All rights reserved</a>
-
-                  </div>
-                  
-              </div>
-          </div>
-      </div>
+  
+  <button class="w3-bar-item w3-button tablinks" onclick="myAccFunc1()">Audiobooks
+  <i class="fa fa-caret-down"></i></button>
+  <div id="demoAcc1" class="w3-hide w3-white w3-card">
+    <button  class="w3-bar-item w3-button" onclick="openCity(event, 'audioPrimary')">Primary School</button>
+    <button  class="w3-bar-item w3-button" onclick="openCity(event, 'audioSecondary')">Secondary School</button>
+    <button  class="w3-bar-item w3-button" onclick="openCity(event, 'audioTertiary')">Tertiary School</button>
   </div>
-</footer>
 
+  <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Assignments')">Help</button>
+</div>
+
+<div style="margin-left:200px;" class="w3-card-4">
+
+  <div class="w3-container tabcontent " style="height:480px;">
+  <h3>eBooks & Audiobooks</h3>
+  <p>[some content].</p>
+  </div>
+
+  <div id="bookPrimary" class="w3-container tabcontent " style="display:none; height:480px;">
+  <h3>Primary eBooks</h3>
+  <p>All primary eBooks will appear here.</p>
+  </div>
+
+  <div id="bookSecondary" class="w3-container tabcontent " style="display:none; height:480px;">
+  <h3>Secondary eBooks</h3>
+  <p>All secondary eBooks will appear here.</p>
+  </div>
+
+  <div id="bookTertiary" class="w3-container tabcontent " style="display:none; height:480px;">
+  <h3>Tertiary eBooks</h3>
+  <p>All tertiary eBooks will appear here.</p>
+  </div>
+
+  <div id="audioPrimary" class="w3-container tabcontent " style="display:none; height:480px;">
+  <h3>Primary audiobooks</h3>
+  <p>All primary audiobooks will appear here.</p>
+  </div>
+
+  <div id="audioSecondary" class="w3-container tabcontent " style="display:none; height:480px;">
+  <h3>Seconday audiobooks</h3>
+  <p>All seconday eBooks will appear here.</p>
+  </div>
+
+  <div id="audioTertiary" class="w3-container tabcontent " style="display:none; height:480px;">
+  <h3>Tertiary audiobooks</h3>
+  <p>All tertiary audiobooks will appear here.</p>
+  </div>
+
+  <div id="Assignments" class="w3-container  tabcontent" style="display:none; height:480px;">
+  <h3>Help</h3>
+  <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+  <div id="Live" class="tabcontent" style="display:none">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+  </div>
+</div>
+
+
+<script>
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-green";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-green", "");
+  }
+}
+
+function myAccFunc1() {
+  var x = document.getElementById("demoAcc1");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-green";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-green", "");
+  }
+}
+
+function myDropFunc() {
+  var x = document.getElementById("demoDrop");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-green";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-green", "");
+  }
+}
+
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, x, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  x = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the link that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+} 
+
+</script>
 </body>
 </html>

@@ -43,3 +43,17 @@ Route::get('/library', function(){
 Route::get('/about', function(){
     return view('pages.about');
 });
+
+
+Route::get('/stdashboard', function(){
+    return view('pages.stdashboard');
+});
+
+Route::get('/thdashboard', function(){
+    return view('pages.thdashboard');
+});
+
+Route::get('/homepage', function(){
+    return view('pages.homepage');
+});
+
