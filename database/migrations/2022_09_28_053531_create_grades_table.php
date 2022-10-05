@@ -22,7 +22,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('assesments')
             ; 
-            $table->string("name");
+            $table->string("score");
         });
     }
 

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Classroom extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'programme_id'];
 
     public function programme(): BelongsTo
     {

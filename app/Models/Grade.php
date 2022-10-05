@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Grade extends Model
 {
     use HasFactory;
+    protected $fillable = ['score', 'assesment_id'];
 
     public function assessment():BelongsTo
     {

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Assesment extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'lesson_id'];
 
     public function module():HasOneThrough
     {

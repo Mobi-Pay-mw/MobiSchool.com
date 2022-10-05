@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Student extends Model
 {
     use HasFactory;
+    protected $fillable = ['name'];
 
     public function grade():HasMany
     {

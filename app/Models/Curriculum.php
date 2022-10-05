@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Curriculum extends Model
 {
     use HasFactory;
+    protected $fillable = ['classroom_id', 'name'];
 
     public function classe (): BelongsTo
     {

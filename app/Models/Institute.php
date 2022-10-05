@@ -11,6 +11,8 @@ class Institute extends Model
 {
     use HasFactory;
 
+    protected $fillable = ["name"];
+
 
     public function faculty(): HasMany
     {
