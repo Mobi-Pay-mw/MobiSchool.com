@@ -893,27 +893,27 @@ ol {
 }
 
 .hero-items .owl-item.active .single-hero-items span {
-	-webkit-transition: all 0.3s ease 0.3s;
-	-o-transition: all 0.3s ease 0.3s;
-	transition: all 0.3s ease 0.3s;
+	-webkit-transition: all 0.30s ease 0.30s;
+	-o-transition: all 0.30s ease 0.30s;
+	transition: all 0.30s ease 0.30s;
 }
 
 .hero-items .owl-item.active .single-hero-items h1 {
-	-webkit-transition: all 0.4s ease 0.4s;
-	-o-transition: all 0.4s ease 0.4s;
-	transition: all 0.4s ease 0.4s;
+	-webkit-transition: all 0.40s ease 0.40s;
+	-o-transition: all 0.40s ease 0.40s;
+	transition: all 0.40s ease 0.40s;
 }
 
 .hero-items .owl-item.active .single-hero-items p {
-	-webkit-transition: all 0.6s ease 0.6s;
-	-o-transition: all 0.6s ease 0.6s;
-	transition: all 0.6s ease 0.6s;
+	-webkit-transition: all 0.60s ease 0.60s;
+	-o-transition: all 0.60s ease 0.60s;
+	transition: all 0.60s ease 0.60s;
 }
 
 .hero-items .owl-item.active .single-hero-items .primary-btn {
-	-webkit-transition: all 0.8s ease 0.8s;
-	-o-transition: all 0.8s ease 0.8s;
-	transition: all 0.8s ease 0.8s;
+	-webkit-transition: all 0.80s ease 0.80s;
+	-o-transition: all 0.80s ease 0.80s;
+	transition: all 0.80s ease 0.80s;
 }
 
 .hero-items .owl-item.active .single-hero-items .off-card {

@@ -13,7 +13,8 @@
  <link rel="stylesheet" href="assets/css/jquery-ui.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/slicknav.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
- 
+ <link rel="stylesheet" href="assets/css/w3css/w3.css" type="text/css">
+
  <!-- Js Plugins -->
  <script src="assets/js/jquery-3.3.1.min.js"></script>
  <script src="assets/js/bootstrap.min.js"></script>
@@ -32,25 +33,17 @@
 <header   class="header-section ">
  <!-- notification panel --> 
     <div>
-    </div>
-
-    <div class="header-top nav-item">
-        <!--logo-->
-        <div class="col-lg-2 col-md-2 ">
-        <div class="logo">
-        <a href="">MobiSchool</a>
         </div>
+
+    <div class="nav-item">
+        <!--logo-->
+    <div class="w3-left">
+        <div class="logo">
+        <a style='color:#ffffff;' href="{{URL::to('/welcome')}}">MobiSchool</a>
+    </div>
     </div>
       
         
-    <div class="header-top nav-item">
-        <!--logo-->
-        <div class="">
-        <div class="">
-        <a href="/welcome" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
-        </div>
-    </div>
-
     <!--web nav menu -->
     <div class="nav-item ">   
       <div class="container ">
@@ -59,11 +52,11 @@
                   <i class="ti-menu"></i>
                   <span>Menu</span>
                   <ul class="depart-hover">
-                      <li class="active"><a href="#">Primary</a></li>
-                      <li><a href="#">Secondary</a></li>
-                      <li><a href="#">Tertiary</a></li>
-                      <li><a href="#">Libary</a></li>
-                      <li><a href="#">About Us</a></li>
+                      <li class="active"><a href="/primary">Primary</a></li>
+                      <li><a href="/secondary">Secondary</a></li>
+                      <li><a href="/tertiary">Tertiary</a></li>
+                      <li><a href="/about">About Us</a></li>
+                      <li><a href="/about">Help</a></li>
                   </ul> 
               </div> 
           </div>
@@ -91,13 +84,12 @@
     </div>
 
 
-  <!--log in & sign up -->
-  <div class="logdiv"> 
-              <button onclick="#" class="login-panel"><i class="fa fa-user"></i>Login</button>
-              <button type="button">Sign Up</button>
-            </div>
+ <!--log in & sign up -->
 
- 
+            <div class="logdiv"> 
+              <a href="{{URL::to('/homepage')}}" class="login-panel"><i class="fa fa-user"></i>Login</a>
+              <a href="{{URL::to('/thdashboard')}}">Sign Up</a>
+            </div>
 
 </header>
 
@@ -110,93 +102,29 @@
               <div class="row">
                   <div class="">
                   <h2> Free Primary School Education</h2> 
-
-                      <p>As a mission-driven organization, we are relentlessly pursuing our vision of a world
-                         where every learner can access education to unlock their potential,
-                          without the barriers of cost or location. [put more content] </p><br>
-                 <div class="text-center">
-                </div> 
+                  <p>As a mission-driven organization, we are relentlessly pursuing our vision of a world
+                    where every learner
+                <span id="dots">...</span><span style="display:none;" id="more">
+                erisque enim ligula venenatis dolor. Maecenas nisl est, 
+                ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. 
+                Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc 
+                venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. 
+                Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+                <button  onclick="myFunction()" id="myBtn">Read more</button> 
                   </div>
               </div>
+
 </div>
 <br>
-<div style='padding:25px; 0px; 25px; 0px;' class="border-top banner-section spad">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="single-banner">
-                  <img src="assets/img/banner-3.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 1</h4>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="single-banner">
-                  <img src="assets/img/banner-1.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 2</h4>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6"><br>
-              <div class="single-banner">
-                  <img src="assets/img/banner-2.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 3</h4>
-                  </div>
-              </div>
-          </div>
+<div  class="container w3-card col-lg-6 col-md-6">
+  <h3>Primary School Leaving Certificate</h3>
+  <p>has 8 classes, 50+ subjects [more content]...</p>
+  <div class="w3-padding-16">
+                <button >Get Started</button>
+            </div>
+</div> 
 
-          <div class="col-lg-6"><br>
-              <div class="single-banner">
-                  <img src="assets/img/banner-2.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 4</h4>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6"> <br>
-              <div class="single-banner">
-                  <img src="assets/img/banner-2.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 5</h4>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6"> <br>
-              <div class="single-banner">
-                  <img src="assets/img/banner-2.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 6</h4>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6"> <br>
-              <div class="single-banner">
-                  <img src="assets/img/banner-2.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 7</h4>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6"> <br>
-              <div class="single-banner">
-                  <img src="assets/img/banner-2.jpg" alt="" />
-                  <div class="inner-text">
-                      <h4>Standard 8</h4>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-
-
+<br>
 <!-- footer -->
 
 <footer class="footer-section">
@@ -272,5 +200,22 @@ Copyright &copy;2022 MobiSchool. All rights reserved</a>
   </div>
 </footer>
 
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+} 
+</script>
 </body>
 </html>
