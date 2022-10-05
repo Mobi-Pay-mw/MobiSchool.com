@@ -83,12 +83,20 @@
                       </div>
                   </div>
     </div>
-
+ 
 
   <!--log in & sign up -->
             <div class="logdiv"> 
-              <button onclick="#" class="login-panel"><i class="fa fa-user"></i>Login</button>
-              <button type="button">Sign Up</button>
+              <!-- <button onclick="#" class="login-panel" ><i class="fa fa-user"></i>Login</button>
+              <button type="button">Sign Up</button> -->
+
+              <a class="login-panel" href="/sign_in">
+                <i class="fa fa-user">Login</i>
+              </a>
+
+              <a class="login-panel" href="/sign_up">
+                <i class="fa fa-user">Sign Up</i>
+              </a>
             </div>
 
 </header>
