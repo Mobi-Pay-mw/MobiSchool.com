@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Course extends Model
 {
     use HasFactory;
+    protected $filled = ['name'];
 
     public function curriculum():BelongsToMany
     {

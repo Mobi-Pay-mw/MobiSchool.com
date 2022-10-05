@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Modules extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'course_id'];
 
     public function course():BelongsTo
     {

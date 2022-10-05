@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 class Programme extends Model
 {
     use HasFactory;
+    protected $fillable = ['name'];
 
     public function department():BelongsToMany
     {

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Lesson extends Model
 {
     use HasFactory;
+    protected $fillable = ['module_id', 'educator_id', 'name'];
 
 
     public function module():BelongsTo

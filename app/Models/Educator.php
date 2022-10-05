@@ -11,6 +11,8 @@ class Educator extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     public function lesson():HasMany
     {
         # code...

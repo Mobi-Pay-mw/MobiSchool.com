@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Repository extends Model
 {
     use HasFactory;
+    protected $fillable = ['lesson_id', 'url'];
 
     public function lesson():BelongsTo
     {
