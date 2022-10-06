@@ -23,7 +23,7 @@ return new class extends Migration
                 ->on('institutes')
             ;
 
-            $table->string("name");
+            $table->text("name");
         });
     }
 

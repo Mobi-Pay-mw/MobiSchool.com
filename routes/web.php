@@ -1,6 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\registrationcontroller;
+use App\Http\Controllers\userauthcontroller;
+use App\Http\Controllers\sessioncontroller;
+
+
+
+route::get('/regform',[registrationcontroller::class,'create']);
+route::post('/reg',[registrationcontroller::class,'store']);
+route::post('/login',[userauthcontroller::class,'login'] );
+route::get('/',[sessioncontroller::class,'create']);
+route::get('/welcome', function(){
+
+    return view('welcome'); 
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -44,16 +58,10 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-
-Route::get('/stdashboard', function(){
-    return view('pages.stdashboard');
+Route::get('/sign_in', function(){
+    return view('login');
 });
 
-Route::get('/thdashboard', function(){
-    return view('pages.thdashboard');
+Route::get('/sign_up', function(){
+    return view('registration');
 });
-
-Route::get('/homepage', function(){
-    return view('pages.homepage');
-});
-
