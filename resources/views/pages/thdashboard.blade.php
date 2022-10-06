@@ -188,9 +188,9 @@
       @csrf
       <div>
         <label>Select video</label>
-        <input type="file" name="video">
+        <input type="file" name="content">
       </div>
-      <input type="submit" value="Upload Image" name="submit">
+      <input type="submit" value="upload_content" name="submit">
     </form>
   </div>
 
