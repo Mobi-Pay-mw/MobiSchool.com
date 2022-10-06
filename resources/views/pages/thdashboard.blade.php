@@ -14,18 +14,19 @@
  <link rel="stylesheet" href="assets/css/slicknav.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
  <link rel="stylesheet" href="assets/css/w3css/w3.css" type="text/css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
  
  <!-- Js Plugins -->
- <script src="assets/js/jquery-3.3.1.min.js"></script>
- <script src="assets/js/bootstrap.min.js"></script>
- <script src="assets/js/jquery-ui.min.js"></script>
- <script src="assets/js/jquery.countdown.min.js"></script>
- <script src="assets/js/jquery.nice-select.min.js"></script>
- <script src="assets/js/jquery.zoom.min.js"></script>
- <script src="assets/js/jquery.dd.min.js"></script>
- <script src="assets/js/jquery.slicknav.js"></script>
- <script src="assets/js/owl.carousel.min.js"></script>
- <script src="assets/js/main.js"></script>
+ <script src="assets/js/jquery-3.3.1.min.js" defer></script>
+ <script src="assets/js/bootstrap.min.js" defer></script>
+ <script src="assets/js/jquery-ui.min.js" defer></script>
+ <script src="assets/js/jquery.countdown.min.js" defer></script>
+ <script src="assets/js/jquery.nice-select.min.js" defer></script>
+ <script src="assets/js/jquery.zoom.min.js" defer></script>
+ <script src="assets/js/jquery.dd.min.js" defer></script>
+ <script src="assets/js/jquery.slicknav.js" defer></script>
+ <script src="assets/js/owl.carousel.min.js" defer></script>
+ <script src="assets/js/main.js" defer></script>
  
 
  
@@ -182,8 +183,15 @@
   </div> 
 
   <div id="Video" class="w3-container  tabcontent" style="display:none; height:480px;">
-  <h3>Upload video</h3>
-  <p>Videos will appear here.</p>
+    <h3>Upload video</h3>
+    <form method="POST" action="/upload_content" enctype="multipart/form-data">
+      @csrf
+      <div>
+        <label>Select video</label>
+        <input type="file" name="video">
+      </div>
+      <input type="submit" value="Upload Image" name="submit">
+    </form>
   </div>
 
   <div id="Lessons" class="w3-container  tabcontent" style="display:none; height:480px;">

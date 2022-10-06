@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RepositoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,4 +57,6 @@ Route::get('/thdashboard', function(){
 Route::get('/homepage', function(){
     return view('pages.homepage');
 });
+
+Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
 
