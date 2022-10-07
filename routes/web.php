@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RepositoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userauthcontroller;
 
@@ -70,5 +71,7 @@ Route::get('/reg',function()
     return view('registration'); 
 });
 
-// login 
 Route::post('/session', [userauthcontroller::class, 'login']);
+
+Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
+
