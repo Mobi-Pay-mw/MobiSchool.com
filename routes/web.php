@@ -1,8 +1,23 @@
 <?php
 
-use App\Http\Controllers\RepositoryController;
+use App\Http\Controllers\AssesmentController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\userauthcontroller;
+use App\Http\Controllers\sessioncontroller;
+
+
+
+route::get('/regform',[registrationcontroller::class,'create']);
+route::post('/reg',[registrationcontroller::class,'store']);
+route::post('/login',[userauthcontroller::class,'login'] );
+route::get('/',[sessioncontroller::class,'create']);
+route::get('/welcome', function(){
+
+    return view('welcome'); 
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -46,32 +61,42 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-
-Route::get('/stdashboard', function(){
-    return view('pages.stdashboard');
+Route::get('/sign_in', function(){
+    return view('login');
 });
 
-Route::get('/thdashboard', function(){
-    return view('pages.thdashboard');
+Route::get('/sign_up', function(){
+    return view('registration');
 });
 
-Route::get('/homepage', function(){
-    return view('pages.homepage');
-});
+Route::get('asses', [AssesmentController::class, 'index']);
 
-Route::get('/login',function()
-{
-    # code...
-    return view('login'); 
-});
+Route::get('/assesmake', [AssesmentController::class, 'create']);
 
-Route::get('/reg',function()
-{
-    # code...
-    return view('registration'); 
-});
+Route::post('/assesstore', [AssesmentController::class, 'store']);
 
-Route::post('/session', [userauthcontroller::class, 'login']);
+Route::get('/assesshow/{id}', [AssesmentController::class, 'show']);
 
-Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
+Route::get('/assesedit/{id}', [AssesmentController::class, 'edit']);
 
+Route::put('/assesupdate/{id}', [AssesmentController::class, 'update']);
+
+Route::get('/assesdelete/{id}', [AssesmentController::class, 'destroy']);
+
+Route::get('/quemake', [QuestionController::class, 'create']);
+
+Route::post('/questore', [QuestionController::class, 'store']);
+
+Route::get('/queedit/{id}', [QuestionController::class, 'edit']);
+
+Route::put('/queupdate/{id}', [QuestionController::class, 'update']);
+
+Route::get('/quedelete/{id}', [QuestionController::class, 'destroy']);
+
+Route::get('/exam', [ExamController::class, 'index']);
+
+Route::get('/quizshow/{id}', [ExamController::class, 'show']);
+
+Route::post('/quizstore', [ExamController::class, 'store']);
+
+Route::get('/result', [ExamController::class, 'results']);
