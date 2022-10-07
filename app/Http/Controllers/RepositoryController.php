@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Expr\Cast\Bool_;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class RepositoryController extends Controller
 {
@@ -23,7 +23,7 @@ class RepositoryController extends Controller
     //
     public function contentStore(Request $request)
     {
-        $this->command = "C:/FFMPEG/ffmpeg -i ./".$this->target_dir."/\"". basename($_FILES["content"]["name"])."\"". " ./Repo/1.mp3";
+        //$this->command = "C:\FFMPEG\ffmpeg -i ./".$this->target_dir."/\"". basename($_FILES["content"]["name"])."\"". " ./Repo/1.mp3";
 
         $this->fileType = $request->file('content')->extension();
 
@@ -33,11 +33,17 @@ class RepositoryController extends Controller
 
             if ($done)
             {
+                FFMpeg::fromDisk('local')
+                        ->open($done)
+                        ->export()
+                        ->onProgress(function ($percentage) {
+                            echo "{$percentage}% transcoded";
+                        })
+                        ->toDisk('local')
+                        ->inFormat(new \FFMpeg\Format\Audio\MP3)
+                        ->save( str_replace( '/storage', '', str_replace( $this->fileType, 'mp3',Storage::url($done) ) ) );
                 echo "running convert";
-                echo "<pre>";
-                echo shell_exec("C:/FFMPEG/ffmpeg -i ".Storage::url($done)." ".str_replace($this->fileType, 'mp3',Storage::url($done) ));
-                echo str_replace($this->fileType, 'mp3',Storage::url($done) );
-                echo "</pre>";
+
             }
         }
 
