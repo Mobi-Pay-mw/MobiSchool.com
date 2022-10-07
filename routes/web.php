@@ -59,5 +59,19 @@ Route::get('/homepage', function(){
     return view('pages.homepage');
 });
 
+Route::get('/login',function()
+{
+    # code...
+    return view('login'); 
+});
+
+Route::get('/reg',function()
+{
+    # code...
+    return view('registration'); 
+});
+
+Route::post('/session', [userauthcontroller::class, 'login']);
+
 Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
 
