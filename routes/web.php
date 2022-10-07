@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\userauthcontroller;
 use App\Http\Controllers\sessioncontroller;
+use App\Http\Controllers\RepositoryController;
 
 
 
@@ -94,6 +95,12 @@ Route::put('/queupdate/{id}', [QuestionController::class, 'update']);
 Route::get('/quedelete/{id}', [QuestionController::class, 'destroy']);
 
 Route::get('/exam', [ExamController::class, 'index']);
+Route::get('/reg',function()
+{
+    # code...
+    return view('registration'); 
+});
+Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
 
 Route::get('/quizshow/{id}', [ExamController::class, 'show']);
 
