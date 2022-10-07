@@ -23,6 +23,12 @@ return new class extends Migration
                 ->on('assesments')
             ; 
             $table->string("score");
+            
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')
+                ->references('id')
+                ->on('students')
+                ;
         });
     }
 

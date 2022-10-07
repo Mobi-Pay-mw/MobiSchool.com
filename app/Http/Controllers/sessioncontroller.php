@@ -8,7 +8,8 @@ class sessioncontroller extends Controller
 {
     public function create()
     {
-
+        
         return view ('login');
+        
     }
 }
