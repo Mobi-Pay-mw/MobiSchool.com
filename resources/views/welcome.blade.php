@@ -13,9 +13,7 @@
  <link rel="stylesheet" href="assets/css/jquery-ui.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/slicknav.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
- <link rel="stylesheet" href="assets/css/w3css/w3.css" type="text/css">
-
-
+ 
  <!-- Js Plugins -->
  <script src="assets/js/jquery-3.3.1.min.js"></script>
  <script src="assets/js/bootstrap.min.js"></script>
@@ -36,12 +34,12 @@
     <div>
         </div>
 
-    <div class="nav-item">
+ <div class="header-top nav-item">
         <!--logo-->
-    <div class="w3-left">
+    <div class="col-lg-2 col-md-2 ">
         <div class="logo">
-        <a style='color:#ffffff;' href="{{URL::to('/welcome')}}">MobiSchool</a>
-    </div>
+        <a style='color:#ffffff;' href="#">MobiSchool</a>
+        </div>
     </div>
       
         
@@ -56,6 +54,8 @@
                       <li class="active"><a href="/primary">Primary</a></li>
                       <li><a href="/secondary">Secondary</a></li>
                       <li><a href="/tertiary">Tertiary</a></li>
+                      <li><a href="/library">Schedule</a></li>
+                      <li><a href="/library">Library</a></li>
                       <li><a href="/about">About Us</a></li>
                       <li><a href="/about">Help</a></li>
                   </ul> 
@@ -83,13 +83,20 @@
                       </div>
                   </div>
     </div>
+ 
 
-
- <!--log in & sign up -->
-
+  <!--log in & sign up -->
             <div class="logdiv"> 
-              <a href="/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
-              <a href="{{URL::to('/reg')}}">Sign Up</a>
+              <!-- <button onclick="#" class="login-panel" ><i class="fa fa-user"></i>Login</button>
+              <button type="button">Sign Up</button> -->
+
+              <a class="login-panel" href="/sign_in">
+                <i class="fa fa-user">Login</i>
+              </a>
+
+              <a class="login-panel" href="/sign_up">
+                <i class="fa fa-user">Sign Up</i>
+              </a>
             </div>
 
 </header>
@@ -161,24 +168,24 @@
       <div class="row">
           <div class="col-lg-4">
               <div class="single-banner">
-                  <img style="height:230px;" class="w3-round" src="assets/img/primary.jpg" alt="" />
-                  <div style="padding-top:100px;" class="inner-text">
-                      <a  href="/primary"><h4 >Primary School</h4></a>
+                  <img src="assets/img/banner-3.jpg" alt="" />
+                  <div class="inner-text">
+                      <a href="/primary"><h4>Primary School</h4></a>
                   </div>
               </div>
           </div>
           <div class="col-lg-4">
               <div class="single-banner">
-                  <img style="height:230px;" class="w3-round" src="assets/img/secondary.jpg" alt="" />
-                  <div style="padding-top:100px;" class="inner-text">
+                  <img src="assets/img/banner-1.jpg" alt="" />
+                  <div class="inner-text">
                       <a href="/secondary"><h4>Secondary School</h4></a>
                   </div>
               </div>
           </div>
           <div class="col-lg-4">
               <div class="single-banner">
-                  <img style="height:230px;" class="w3-round" src="assets/img/tertiary.jpg" alt="" />
-                  <div style="padding-top:100px;" class="inner-text">
+                  <img src="assets/img/banner-2.jpg" alt="" />
+                  <div class="inner-text">
                       <a href="/tertiary"><h4>Tertiary School</h4></a>
                   </div>
               </div>
@@ -195,21 +202,27 @@
           <div class="col-lg-3">
               <div class="product-large set-bg" data-setbg="assets/img/women-large.jpg">
                   <h2>LIBRARY</h2>
+                  <a href="/library">VIEW MORE</a>
               </div>
           </div>
           <div class="col-lg-8 offset-lg-1">
               <div class="filter-control">
                   <ul>
-                      <li class="active">Catalogue</li>
+                      <li class="active">Categories</li>
                       
                   </ul>
               </div>
               <div class="product-slider owl-carousel">
                   <div class="product-item">
                       <div class="pi-pic">
-                          <img src="assets/img/women-2.jpg" alt="" />
-                          <ul> 
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                          <img src="assets/img/macbeth.jpg" alt="" />
+                          <div class="icon">
+                              <i class="icon_heart_alt"></i>
+                          </div>
+                          <ul>
+                              <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                              <li class="quick-view"><a href="#">+ Quick View</a></li>
+                              <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -218,36 +231,47 @@
                               <h5>Smouldering charchoal</h5>
                           </a>
                           <div class="product-price">
-                              Free   
+                              Free
+                              
+                          </div>
+                      </div>
+                  </div>
+                  <div class="product-item">
+                      <div class="pi-pic">
+                          <img src="assets/img/women-2.jpg" alt="" />
+                          <div class="icon">
+                              <i class="icon_heart_alt"></i>
+                          </div>
+                          <ul>
+                              <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                              <li class="quick-view"><a href="#">+ Quick View</a></li>
+                              <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                          </ul>
+                      </div>
+                      <div class="pi-text">
+                          <div class="catagory-name">Audio Session</div>
+                          <a href="#">
+                              <h5>English 101</h5>
+                          </a>
+                          <div class="product-price">
+                              Free
                           </div>
                       </div>
                   </div>
                   <div class="product-item">
                       <div class="pi-pic">
                           <img src="assets/img/women-3.jpg" alt="" />
-                          <ul>
-                              <li class="quick-view"><a href="#">Quick view</a></li>
-                          </ul>
-                      </div>
-                      <div class="pi-text">
-                          <div class="catagory-name">Audio book</div>
-                          <a href="#">
-                              <h5>Macbeth</h5>
-                          </a>
-                          <div class="product-price">
-                              MK 5,000.00
+                          <div class="icon">
+                              <i class="icon_heart_alt"></i>
                           </div>
-                      </div>
-                  </div>
-                  <div class="product-item">
-                      <div class="pi-pic">
-                          <img src="assets/img/women-1.jpg" alt="" />
                           <ul>
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                              <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                              <li class="quick-view"><a href="#">+ Quick View</a></li>
+                              <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
-                          <div class="catagory-name">Audio book</div>
+                          <div class="catagory-name">video</div>
                           <a href="#">
                               <h5>Photosynthesis</h5>
                           </a>
@@ -259,9 +283,13 @@
                   <div class="product-item">
                       <div class="pi-pic">
                           <img src="assets/img/women-4.jpg" alt="" />
+                          <div class="icon">
+                              <i class="icon_heart_alt"></i>
+                          </div>
                           <ul>
-                            
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                              <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                              <li class="quick-view"><a href="#">+ Quick View</a></li>
+                              <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -270,7 +298,7 @@
                               <h5>Discovering computers</h5>
                           </a>
                           <div class="product-price">
-                              MK 3,000.00
+                              Free
                           </div>
                       </div>
                   </div>
@@ -432,7 +460,7 @@
               <p>We offer a diverse of online class sessions to learners
                 to access it easily regardless of location, cost and time. </p>
                 <br>
-              <p> Still don't have an account?<a style="color:blue" href="#"> Sign Up</a></p>
+              <p> Still don't have an account?<a href="#"> Sign Up</a></p>
                   
               </div>
           </div>

@@ -23,22 +23,8 @@ class userauthcontroller extends Controller
    
         //$credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-                     
-$role=auth::user()->role;
-if ($role==1)
-{
-    return view('/admin');
-}
-
-if ($role==2)
-{
-    return view('pages.thdashboard');
-}
-
-else 
-{
-    return view('pages.stdashboard');
-}
+            return redirect()->intended('/welcome')
+                        ->withSuccess('Signed in');
         }
   
         return back()->withErrors([
