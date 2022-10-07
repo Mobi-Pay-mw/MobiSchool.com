@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\AssesmentController;
-use App\Http\Controllers\ExamController;
-use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\RepositoryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\userauthcontroller;
+<<<<<<< HEAD
 use App\Http\Controllers\sessioncontroller;
 use App\Http\Controllers\RepositoryController;
 
@@ -19,6 +17,8 @@ route::get('/welcome', function(){
 
     return view('welcome'); 
 });
+=======
+>>>>>>> parent of badaa0c (Merge branch 'Assignment' into Assessment_2.0)
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +62,7 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
+<<<<<<< HEAD
 // Route::get('/sign_in', function(){
 //     return view('login');
 // });
@@ -70,6 +71,8 @@ Route::get('/about', function(){
 //     return view('registration');
 // });
 
+=======
+>>>>>>> parent of badaa0c (Merge branch 'Assignment' into Assessment_2.0)
 
 Route::get('/stdashboard', function(){
     return view('pages.stdashboard');
@@ -82,6 +85,7 @@ Route::get('/thdashboard', function(){
 Route::get('/homepage', function(){
     return view('pages.homepage');
 });
+<<<<<<< HEAD
 
 Route::get('/login',function()
 {
@@ -99,15 +103,26 @@ Route::get('/reg',function()
 Route::post('/session', [userauthcontroller::class, 'login']);
 
 Route::get('asses', [AssesmentController::class, 'index']);
+=======
+>>>>>>> parent of badaa0c (Merge branch 'Assignment' into Assessment_2.0)
 
-Route::get('/assesmake', [AssesmentController::class, 'create']);
+Route::get('/login',function()
+{
+    # code...
+    return view('login'); 
+});
 
-Route::post('/assesstore', [AssesmentController::class, 'store']);
+Route::get('/reg',function()
+{
+    # code...
+    return view('registration'); 
+});
 
-Route::get('/assesshow/{id}', [AssesmentController::class, 'show']);
+Route::post('/session', [userauthcontroller::class, 'login']);
 
-Route::get('/assesedit/{id}', [AssesmentController::class, 'edit']);
+Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
 
+<<<<<<< HEAD
 Route::put('/assesupdate/{id}', [AssesmentController::class, 'update']);
 
 Route::get('/assesdelete/{id}', [AssesmentController::class, 'destroy']);
@@ -135,3 +150,5 @@ Route::get('/quizshow/{id}', [ExamController::class, 'show']);
 Route::post('/quizstore', [ExamController::class, 'store']);
 
 Route::get('/result', [ExamController::class, 'results']);
+=======
+>>>>>>> parent of badaa0c (Merge branch 'Assignment' into Assessment_2.0)

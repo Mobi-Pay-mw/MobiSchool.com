@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://classless.de/classless.css">
 <h1>SIGN IN</h1>
-<form method="POST" action="/login">
+<form method="POST" action="/session">
     @csrf
     <div>
  

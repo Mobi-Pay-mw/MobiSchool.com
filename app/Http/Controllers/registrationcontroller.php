@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
 use App\Models\User;
 // use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -25,17 +27,24 @@ $validated = request()->validate([
 ]);
 
 
-    // $user = new User;
-    // $user->name = $validated["name"];
-    // $user->phone = $validated["phone"];
-    // $user->class = $validated["class"];
-    // $user->password = $validated["password"];
-    // $user->email = $validated["email"];
-    // $user->save();
-
     $user = User::create($validated);
     Auth::login($user);
-    return redirect('/welcome')->with('success' ,'New account has been created for');
+
+    $role=auth::user()->role;
+    if ($role==1)
+    {
+        return view('/admin');
+    }
+
+    if ($role==2)
+    {
+        return view('pages.thdashboard');
+    }
+
+   else 
+    {
+        return view('pages.stdashboard');
+    }
     }
 }
 

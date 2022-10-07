@@ -8,7 +8,7 @@
     <form method="POST" action="/reg">
     @csrf
     <div>
-        
+            
                         
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
