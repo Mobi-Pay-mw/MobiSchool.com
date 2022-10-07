@@ -62,13 +62,41 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-Route::get('/sign_in', function(){
-    return view('login');
+// Route::get('/sign_in', function(){
+//     return view('login');
+// });
+
+// Route::get('/sign_up', function(){
+//     return view('registration');
+// });
+
+
+Route::get('/stdashboard', function(){
+    return view('pages.stdashboard');
 });
 
-Route::get('/sign_up', function(){
-    return view('registration');
+Route::get('/thdashboard', function(){
+    return view('pages.thdashboard');
 });
+
+Route::get('/homepage', function(){
+    return view('pages.homepage');
+});
+
+Route::get('/login',function()
+{
+    # code...
+    return view('login'); 
+});
+
+Route::get('/reg',function()
+{
+    # code...
+    return view('registration'); 
+});
+
+// login 
+Route::post('/session', [userauthcontroller::class, 'login']);
 
 Route::get('asses', [AssesmentController::class, 'index']);
 
