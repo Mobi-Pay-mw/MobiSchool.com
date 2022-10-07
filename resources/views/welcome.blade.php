@@ -88,8 +88,8 @@
  <!--log in & sign up -->
 
             <div class="logdiv"> 
-              <a href="{{URL::to('/homepage')}}" class="login-panel"><i class="fa fa-user"></i>Login</a>
-              <a href="{{URL::to('/thdashboard')}}">Sign Up</a>
+              <a href="/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+              <a href="{{URL::to('/reg')}}">Sign Up</a>
             </div>
 
 </header>
