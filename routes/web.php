@@ -79,10 +79,6 @@ Route::get('/reg',function()
     return view('registration'); 
 });
 
-// login 
-
-Route::get('asses', [AssesmentController::class, 'index']);
-
 Route::get('/login',function()
 {
     # code...
