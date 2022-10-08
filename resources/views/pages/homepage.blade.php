@@ -31,11 +31,16 @@
 <body>
 
 <header   class="header-section ">
- <!-- notification panel --> 
-    <div>
-        </div>
-
- <div class="header-top nav-item">
+    <!-- notification panel --> 
+    <div id='id01' class="w3-container w3-light-gray">
+        <p class="w3-center" style="padding-top:10px;">
+        <b>MobiSchool's New App is now available on Google Play Store!</b> 
+            <button class="w3-button w3-small w3-round w3-deep-orange ">Download</button> 
+            <button onclick="document.getElementById('id01').style.display='none'" 
+            class="w3-right w3-deep-orange w3-button w3-circle">&times;</button></p>
+            
+    </div>
+ <div class="nav-item">
         <!--logo-->
     <div class="w3-left">
         <div class="logo">
@@ -52,12 +57,12 @@
                   <i class="ti-menu"></i>
                   <span>Menu</span>
                   <ul class="depart-hover">
-                      <li class="active"><a href="/primary">Primary</a></li>
-                      <li><a href="/secondary">Secondary</a></li>
-                      <li><a href="/tertiary">Tertiary</a></li>
+                      <li class="active"><a href="#">Primary</a></li>
+                      <li><a href="#">Secondary</a></li>
+                      <li><a href="#">Tertiary</a></li>
                       <li><a href="/library">Library</a></li>
-                      <li><a href="/about">About Us</a></li>
-                      <li><a href="/about">Help</a></li>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Help</a></li>
                   </ul> 
               </div> 
           </div>
@@ -99,12 +104,12 @@
 <br>
 
 <!-- Advert1 section -->
-<section style='padding:25px; 0px; 25px; 0px; background-color:#;' class="deal-of-week set-bg spad">
+<section style='padding:25px; 0px; 25px; 0px;' class="deal-of-week set-bg spad">
   <div class="container">
       <div class="row">
           <div class="col-lg-12">
               <div class="section-title">
-                  <h2>Learn with MobiSchools</h2><br>
+                  <h2>Free Online Learning</h2><br>
               </div>
           </div>
       </div>
@@ -123,14 +128,14 @@
 
 <!-- MobiSchool categories section -->
 
-<div style='padding:25px; 0px; 25px; 0px;' class="banner-section spad">
+<div style='padding:25px; 0px; 25px; 0px;' class="w3-light-gray banner-section spad">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-4">
               <div class="single-banner">
                   <img style="height:230px;" class="w3-round" src="assets/img/primary-2.jpg" alt="" />
                   <div style="padding-top:100px;" class="inner-text">
-                      <a href="/primary"><h4>Primary School</h4></a>
+                      <a href="#"><h4>Primary School</h4></a>
                   </div>
               </div>
           </div>
@@ -138,7 +143,7 @@
               <div class="single-banner">
                   <img class="w3-round" src="assets/img/secondary-2.jpg" alt="" />
                   <div style="padding-:100px;" class="inner-text">
-                      <a href="/secondary"><h4>Secondary School</h4></a>
+                      <a href="#"><h4>Secondary School</h4></a>
                   </div>
               </div>
           </div>
@@ -146,7 +151,7 @@
               <div class="single-banner">
                   <img class="w3-round" src="assets/img/tertiary-2.jpg" alt="" />
                   <div style="padding-top:100px;" class="inner-text">
-                      <a href="/tertiary"><h4>Tertiary School</h4></a>
+                      <a href="#"><h4>Tertiary School</h4></a>
                   </div>
               </div>
           </div>
@@ -156,13 +161,12 @@
 
 <!-- Library section-->
 
-<section  style='padding:25px; 0px; 25px; 0px;' class="women-banner spad">
+<section  style='padding:25px; 0px; 25px; 0px;' class="w3-light-gray women-banner spad">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-3">
               <div class="product-large set-bg" data-setbg="assets/img/women-large.jpg">
                   <h2>LIBRARY</h2>
-                  <a href="{{URL::to('/library')}}">VIEW MORE</a>
               </div>
           </div>
           <div class="col-lg-8 offset-lg-1">
@@ -177,7 +181,8 @@
                       <div class="pi-pic">
                           <img src="assets/img/women-2.jpg" alt="" />
                           <ul> 
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                              <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -194,7 +199,8 @@
                       <div class="pi-pic">
                           <img src="assets/img/women-3.jpg" alt="" />
                           <ul>
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                            <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -211,7 +217,8 @@
                       <div class="pi-pic">
                           <img src="assets/img/women-1.jpg" alt="" />
                           <ul>
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                            <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -229,7 +236,8 @@
                           <img src="assets/img/women-4.jpg" alt="" />
                           <ul>
                             
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                          <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -251,7 +259,7 @@
 
 <!-- advert2 section-->
 
-<section style='padding:25px; 0px; 25px; 0px;' class="man-banner spad" >
+<section style='padding:25px; 0px; 25px; 0px; ' class="w3-light-gray man-banner spad" >
     <div class="benefit-items">
           <div class="row">
               <div class="col-lg-4">

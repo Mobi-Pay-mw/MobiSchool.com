@@ -4,8 +4,8 @@ use App\Http\Controllers\AssesmentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\RepositoryController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userauthcontroller;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

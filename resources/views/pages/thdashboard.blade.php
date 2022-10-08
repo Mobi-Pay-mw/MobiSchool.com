@@ -14,19 +14,18 @@
  <link rel="stylesheet" href="assets/css/slicknav.min.css" type="text/css">
  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
  <link rel="stylesheet" href="assets/css/w3css/w3.css" type="text/css">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
  
  <!-- Js Plugins -->
- <script src="assets/js/jquery-3.3.1.min.js" defer></script>
- <script src="assets/js/bootstrap.min.js" defer></script>
- <script src="assets/js/jquery-ui.min.js" defer></script>
- <script src="assets/js/jquery.countdown.min.js" defer></script>
- <script src="assets/js/jquery.nice-select.min.js" defer></script>
- <script src="assets/js/jquery.zoom.min.js" defer></script>
- <script src="assets/js/jquery.dd.min.js" defer></script>
- <script src="assets/js/jquery.slicknav.js" defer></script>
- <script src="assets/js/owl.carousel.min.js" defer></script>
- <script src="assets/js/main.js" defer></script>
+ <script src="assets/js/jquery-3.3.1.min.js"></script>
+ <script src="assets/js/bootstrap.min.js"></script>
+ <script src="assets/js/jquery-ui.min.js"></script>
+ <script src="assets/js/jquery.countdown.min.js"></script>
+ <script src="assets/js/jquery.nice-select.min.js"></script>
+ <script src="assets/js/jquery.zoom.min.js"></script>
+ <script src="assets/js/jquery.dd.min.js"></script>
+ <script src="assets/js/jquery.slicknav.js"></script>
+ <script src="assets/js/owl.carousel.min.js"></script>
+ <script src="assets/js/main.js"></script>
  
 
  
@@ -77,19 +76,20 @@
     </div>
 
     <div class="header-top nav-item">
-        <!--logo-->
-        <div class="col-lg-2 col-md-2 ">
+      <!--logo-->
+
+      <div class="w3-left">
         <div class="logo">
-        <a href="">MobiSchool</a>
+        <a style='color:#ffffff;' href="">MobiSchool</a>
         </div>
     </div>
       
         
-    <div class="header-top nav-item">
-        <!--logo-->
+    
+        <!--home -icon-->
         <div class="">
         <div class="">
-        <a href="/homepage" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
+        <a href="{{URL::to('/homepage')}}" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
         </div>
     </div>
 
@@ -122,24 +122,26 @@
        
   </div>
     
- <!--search -->
- <div class="searchdiv" >
-        <div class="advanced-search " > 
-        <div class="input-group " >
-        <input  style='width:260px' type="text" placeholder=" Search what you need here" />
-        <button type="button"><i class="ti-search"></i></button>
-        </div>
-        </div>
+  <!--search -->
+    <div class="searchdiv" >
+                  <div class="advanced-search " > 
+                      <div class="input-group " >
+                          <input  style='width:260px' type="text" placeholder=" Search what you need here" />
+                          <button type="button"><i class="ti-search"></i></button>
+                      </div>
+                  </div>
     </div>
+
 
   <!--log in & sign up -->
   
-  <div class="w3-dropdown-hover">
- <button onclick="myDropFunc()" class="w3-button w3-circle w3-light-gray"><i class="fa fa-user"></i></button>
+ 
+  <div class="logdiv w3-dropdown-hover">
+    <button onclick="myDropFunc()" class="w3-button w3-circle w3-light-gray"><i class="fa fa-user"></i></button>
     <div id="demoDrop" class="w3-dropdown-content w3-bar-block w3-deep-orange w3-card">
-
-      <a href="#" class="w3-bar-item w3-button">Dashboard</a>
-      <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
+    <a href="#" class="w3-bar-item w3-button">view profile</a>
+    <a href="{{URL::to('/stdashboard')}}" class="w3-bar-item w3-button">Dashboard</a>
+    <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
     </div>
   </div>
 
@@ -164,7 +166,7 @@
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Feedback')"> Feedback</button>
 </div>
 
-<div style="margin-left:200px;" class="w3-card-4">
+<div style="margin-left:200px;" class="w3-card-4 w3-light-gray">
 
 
   <div id="welcome" class="w3-container tabcontent " style="height:480px;">
@@ -172,26 +174,47 @@
   <p>Let mobiSchools make work easier for you, select your task you want.</p>
   </div>
 
-  <div id="Schedule" class="w3-container  tabcontent " style="display:none; height:480px;">
-  <h3>Schedule</h3>
-  <p>Schedules will appear here.</p>
+<div id="Schedule" class="w3-container  tabcontent " style="display:none; height:480px;">
+  <h3 class="w3-center">Schedule</h3>
+  <div class="w3-container w3-card w3-round ">
+  <p>Please follow the guidelines below:</p>
+  <ul class="w3-container">
+    <li>If its your first time, please download the template here <a style="color:blue" href="">download</a></li>
+    <li>Fill in the details and save it. This can be done offline</li>
+    <li>Save the file in your name i.e MaxDen.xlsx </li>
+    <li>Upload the file below by clicking the 'UPLOAD' button</li>
+  </ul>
   </div>
+  <br>
+  
+  <div class="w3-container w3-card w3-round">
+  <h4>Upload here:</h4>
+  <form class="w3-center">
+  <input type="file"></input>
+  <button class="w3-button w3-round w3-deep-orange">UPLOAD</button>
+  </form><br>
+  </div>
+    <br>
+
+  <div class="w3-container w3-card w3-round">
+  <h4>View your uploads here</h4>
+  <button class="w3-button w3-round w3-deep-orange">VIEW</button><br>
+  <p>You have <span style='color:red;'>0</span> uploads</P>
+  
+  </div>
+
+</div>
 
   <div id="Live" class="w3-container  tabcontent " style="display:none; height:480px;">
   <h3>Live Class</h3>
+
   <p>Start a Live class here.</p>
+
   </div> 
 
   <div id="Video" class="w3-container  tabcontent" style="display:none; height:480px;">
-    <h3>Upload video</h3>
-    <form method="POST" action="/upload_content" enctype="multipart/form-data">
-      @csrf
-      <div>
-        <label>Select video</label>
-        <input type="file" name="content">
-      </div>
-      <input type="submit" value="upload_content" name="submit">
-    </form>
+  <h3>Upload video</h3>
+  <p>Videos will appear here.</p>
   </div>
 
   <div id="Lessons" class="w3-container  tabcontent" style="display:none; height:480px;">
