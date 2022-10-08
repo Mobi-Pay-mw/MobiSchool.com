@@ -15,6 +15,8 @@ use App\Http\Controllers\userauthcontroller;
 |
 */
 
+// UI/UX navigation
+
 Route::get('/', function () {
     return view('welcome');
 
@@ -59,6 +61,9 @@ Route::get('/homepage', function(){
     return view('pages.homepage');
 });
 
+
+// user management
+
 Route::get('/login',function()
 {
     # code...
@@ -72,6 +77,9 @@ Route::get('/reg',function()
 });
 
 Route::post('/session', [userauthcontroller::class, 'login']);
+
+
+//content upload
 
 Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
 
