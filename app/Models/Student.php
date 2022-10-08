@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Student extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'classroom_id', 'student_id'];
 
     public function grade():HasMany
     {
@@ -33,4 +33,5 @@ class Student extends Model
     {
         return $this->belongsTo(Classroom::class);
     }
+    
 }

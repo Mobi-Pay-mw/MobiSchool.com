@@ -18,8 +18,10 @@ use App\Models\Lesson;
 use App\Models\Library;
 use App\Models\Modules;
 use App\Models\Programme;
+use App\Models\Question;
 use App\Models\Repository;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 use Faker;
@@ -293,6 +295,11 @@ class DatabaseSeeder extends Seeder
             'programme_id' => $Doctorate->id
         ]);
 
+        $classrooms = array($std_0, $std_1, $std_2, $std_3, $std_4, $std_5, $std_6, $std_7, $form_1, $form_2, 
+        $form_3, $form_4, $cert, $diploma_1, $diploma_2, $bachelors_0, $bachelors_1, 
+        $bachelors_2, $bachelors_3, $honor_0, $honor_1, $honor_2, $honor_3,$honor_4, $Masters_1, 
+        $Masters_2, $Doctorate_1, $Doctorate_2, $Doctorate_3, $Doctorate_4);
+
         //Department Programme
 
         $department_0->programme()->attach($PLSC);
@@ -519,7 +526,8 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 20; $i++)
         {
             $student = Student::create([
-                'name' => $faker->unique()->name()
+                'name' => $faker->unique()->name(),
+                'classroom_id' => $faker->randomElement($classrooms)['id']
             ]);
 
             array_push($students, $student);
@@ -584,11 +592,29 @@ class DatabaseSeeder extends Seeder
             array_push($assessments, $assessment);
         }
 
+        $questions = array();
+
+        for($i = 0; $i < 10; $i++)
+        {
+            array_push( $questions , $question = Question::create([
+                'assesment_id' => $assessment->id,
+                'question' => $faker->text(100),
+                'answer' => $faker->buildingNumber(),
+                'marks' => $faker->numberBetween(0,100),
+                'Option_1' => $faker->buildingNumber(),
+                'Option_2' => $faker->buildingNumber(),
+                'Option_3' => $faker->buildingNumber(),
+                'Option_4' => $faker->buildingNumber()
+            ]) );
+        }
+
         foreach ($assessments as $assessment)
         {
             $grade = Grade::create([
                 'score' => $faker->numberBetween(0, 100),
-                'assesment_id' => $assessment->id
+                'assesment_id' => $assessment->id,
+                'question_id' => $faker->randomElement($questions)['id'],
+                'student_id' => $faker->randomElement($students)['id']
             ]);
         }
 
@@ -602,6 +628,15 @@ class DatabaseSeeder extends Seeder
         foreach ($books as $key => $value)
         {
             $value->course()->attach($subjects[$key]);
+        }
+
+        foreach ($students as $student)
+        {
+            User::create([
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'password' => bcrypt('1234567890')
+            ]);
         }
 
 

@@ -21,8 +21,20 @@ return new class extends Migration
             $table->foreign('assesment_id')
                 ->references('id')
                 ->on('assesments')
-            ; 
+            ;
+            $table->unsignedBigInteger('question_id');
+            $table->foreign('question_id')
+                ->references('id')
+                ->on('questions')
+                ->ondelete('cascade');
+
             $table->string("score");
+            
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')
+                ->references('id')
+                ->on('students')
+            ;
         });
     }
 

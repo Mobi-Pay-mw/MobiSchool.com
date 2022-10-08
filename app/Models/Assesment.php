@@ -27,4 +27,9 @@ class Assesment extends Model
     {
         return $this->hasMany(Grade::class);
     }
+
+    public function question():HasMany
+    {
+        return $this->hasMany(Question::class);
+    }
 }
