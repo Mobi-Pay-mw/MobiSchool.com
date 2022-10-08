@@ -124,12 +124,12 @@
     
   <!--search -->
     <div class="searchdiv" >
-                  <div class="advanced-search " > 
-                      <div class="input-group " >
-                          <input  style='width:260px' type="text" placeholder=" Search what you need here" />
-                          <button type="button"><i class="ti-search"></i></button>
-                      </div>
-                  </div>
+      <div class="advanced-search " > 
+          <div class="input-group " >
+              <input  style='width:260px' type="text" placeholder=" Search what you need here" />
+              <button type="button"><i class="ti-search"></i></button>
+          </div>
+      </div>
     </div>
 
 
@@ -151,7 +151,7 @@
 <!-- Page Content -->
 
 <div class="container">
-  <h2>Greeting, User![Teacher]</h2>
+  <h2>Greeting, {{ auth()->user()->name }}</h2>
 </div>
   <br>
 
@@ -169,7 +169,8 @@
 <div style="margin-left:200px;" class="w3-card-4 w3-light-gray">
 
 
-  <div id="welcome" class="w3-container tabcontent " style="height:480px;">
+  <div id="welcome" class="w3-container tabcontent" style="height:480px;">
+  {{ dd( auth()->user()->lesson ) }}
   <h3>Welcome</h3>
   <p>Let mobiSchools make work easier for you, select your task you want.</p>
   </div>

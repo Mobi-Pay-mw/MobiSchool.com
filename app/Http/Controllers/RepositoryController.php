@@ -8,7 +8,6 @@ use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class RepositoryController extends Controller
 {
-    protected $command;
     protected $educator_name_id;
     protected $educator_subject_name_id;
     protected $subject_module_name_id_date;
@@ -23,8 +22,6 @@ class RepositoryController extends Controller
     //
     public function contentStore(Request $request)
     {
-        //$this->command = "C:\FFMPEG\ffmpeg -i ./".$this->target_dir."/\"". basename($_FILES["content"]["name"])."\"". " ./Repo/1.mp3";
-
         $this->fileType = $request->file('content')->extension();
 
         if ( array_key_exists($this->fileType, $this->extension) )
@@ -33,6 +30,8 @@ class RepositoryController extends Controller
 
             if ($done)
             {
+                echo "running convert";
+
                 FFMpeg::fromDisk('local')
                         ->open($done)
                         ->export()
@@ -42,7 +41,6 @@ class RepositoryController extends Controller
                         ->toDisk('local')
                         ->inFormat(new \FFMpeg\Format\Audio\MP3)
                         ->save( str_replace( '/storage', '', str_replace( $this->fileType, 'mp3',Storage::url($done) ) ) );
-                echo "running convert";
 
             }
         }
@@ -57,5 +55,11 @@ class RepositoryController extends Controller
         //return Storage::url('example', 'empty_file');
 
         //echo Storage::url('example');
+    }
+
+    public function init ( )
+    {
+        $this->educator_name_id = auth()->user()->name.'_'.auth()->user()->id;
+        $this->educator_subject_name_id;
     }
 }
