@@ -1,21 +1,11 @@
 <?php
 
+use App\Http\Controllers\AssesmentController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\RepositoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userauthcontroller;
-
-
-
-// route::get('/regform',[registrationcontroller::class,'create']);
-// route::post('/reg',[registrationcontroller::class,'store']);
-// route::post('/login',[userauthcontroller::class,'login'] );
-// route::get('/',[sessioncontroller::class,'create']);
-// route::get('/welcome', function(){
-
-//     return view('welcome'); 
-// });
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +17,8 @@ use App\Http\Controllers\userauthcontroller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// UI/UX navigation
 
 Route::get('/', function () {
     return view('welcome');
@@ -72,6 +64,9 @@ Route::get('/homepage', function(){
     return view('pages.homepage');
 });
 
+
+// user management
+
 Route::get('/login',function()
 {
     # code...
@@ -102,11 +97,30 @@ Route::get('/reg',function()
 
 Route::post('/session', [userauthcontroller::class, 'login']);
 
+Route::post('/registration', [registrationcontroller::class, 'store']);
+
+
+//content upload
+
 Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
+
+
+// Assessment Management
+
+Route::get('asses', [AssesmentController::class, 'index']);
+
+Route::get('/assesmake', [AssesmentController::class, 'create']);
+
+Route::post('/assesstore', [AssesmentController::class, 'store']);
+
+Route::get('/assesshow/{id}', [AssesmentController::class, 'show']);
+
+Route::get('/assesedit/{id}', [AssesmentController::class, 'edit']);
 
 Route::put('/assesupdate/{id}', [AssesmentController::class, 'update']);
 
 Route::get('/assesdelete/{id}', [AssesmentController::class, 'destroy']);
+
 
 Route::get('/quemake', [QuestionController::class, 'create']);
 
@@ -118,13 +132,11 @@ Route::put('/queupdate/{id}', [QuestionController::class, 'update']);
 
 Route::get('/quedelete/{id}', [QuestionController::class, 'destroy']);
 
-Route::get('/exam', [ExamController::class, 'index']);
 
-Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
+Route::get('/exam', [ExamController::class, 'index']);
 
 Route::get('/quizshow/{id}', [ExamController::class, 'show']);
 
 Route::post('/quizstore', [ExamController::class, 'store']);
 
 Route::get('/result', [ExamController::class, 'results']);
-

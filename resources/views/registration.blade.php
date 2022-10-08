@@ -5,7 +5,7 @@
  
   <div class="regform">
     <H1>SIGN UP</H1> 
-    <form method="POST" action="/reg">
+    <form method="POST" action="/registration">
     @csrf
     <div>
             
