@@ -33,8 +33,14 @@
 
 <header   class="header-section ">
  <!-- notification panel --> 
-    <div>
-        </div>
+ <div id='id01' class="w3-container w3-light-gray">
+        <p class="w3-center" style="padding-top:10px;">
+        <b>MobiSchool's New App is now available on Google Play Store!</b> 
+            <button class="w3-button w3-small w3-round w3-deep-orange ">Download</button> 
+            <button onclick="document.getElementById('id01').style.display='none'" 
+            class="w3-right w3-deep-orange w3-button w3-circle">&times;</button></p>
+            
+    </div>
 
     <div class="nav-item">
         <!--logo-->
@@ -88,8 +94,8 @@
  <!--log in & sign up -->
 
             <div class="logdiv"> 
-              <a href="/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
-              <a href="{{URL::to('/reg')}}">Sign Up</a>
+              <a href="{{URL::to('/homepage')}}" class="w3-button w3-large w3-round w3-deep-orange">Login</a> 
+              <a href="{{URL::to('/thdashboard')}}"class="w3-button w3-large w3-round w3-deep-orange">Sign Up</a>
             </div>
 
 </header>
@@ -156,7 +162,7 @@
 
 <!-- MobiSchool categories section -->
 
-<div style='padding:25px; 0px; 25px; 0px;' class="banner-section spad">
+<div style='padding:25px; 0px; 25px; 0px;' class="w3-light-gray banner-section spad">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-4">
@@ -189,7 +195,7 @@
 
 <!-- Library section-->
 
-<section  style='padding:25px; 0px; 25px; 0px;' class="women-banner spad">
+<section  style='padding:25px; 0px; 25px; 0px;' class="w3-light-gray women-banner spad">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-3">
@@ -209,7 +215,8 @@
                       <div class="pi-pic">
                           <img src="assets/img/women-2.jpg" alt="" />
                           <ul> 
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                              <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -226,7 +233,8 @@
                       <div class="pi-pic">
                           <img src="assets/img/women-3.jpg" alt="" />
                           <ul>
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                            <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -243,7 +251,8 @@
                       <div class="pi-pic">
                           <img src="assets/img/women-1.jpg" alt="" />
                           <ul>
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                            <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -261,7 +270,8 @@
                           <img src="assets/img/women-4.jpg" alt="" />
                           <ul>
                             
-                              <li class="quick-view"><a href="#">Quick view</a></li>
+                          <li class="w3-round w3-deep-orange quick-view">
+                                <a style="color:#ffffff;"href="#">Quick view</a></li>
                           </ul>
                       </div>
                       <div class="pi-text">
@@ -281,51 +291,9 @@
 </section>
 
 
-<!-- advert2 section-->
-
-<section style='padding:25px; 0px; 25px; 0px;' class="man-banner spad" >
-    <div class="benefit-items">
-          <div class="row">
-              <div class="col-lg-4">
-                  <div class="single-benefit">
-                      <div class="sb-icon">
-                          <img src="assets/img/icon-2.png" alt="" />
-                      </div>
-                      <div class="sb-text">
-                          <h6>FREE LEARNING</h6>
-                          <p>for everyone, everywhere</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4">
-                  <div class="single-benefit">
-                      <div class="sb-icon">
-                          <img src="assets/img/icon-2.png" alt="" />
-                      </div>
-                      <div class="sb-text">
-                          <h6>E-BOOKS</h6>
-                          <p>available 24/7</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4">
-                  <div class="single-benefit">
-                      <div class="sb-icon">
-                          <img src="assets/img/icon-2.png" alt="" />
-                      </div>
-                      <div class="sb-text">
-                          <h6>CLASS SESSIONS</h6>
-                          <p>watch, listen & subscribe</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-</section>
-
  <!-- learners section--> 
 
-<section  style='padding:25px; 0px; 25px; 0px;' class="man-banner spad">
+<section  style='padding:25px; 0px; 25px; 0px;' class="w3-light-gray man-banner spad">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-12">
@@ -414,10 +382,10 @@
 </section>
 
 
-<!-- advert3 & ssection-->
+<!-- advert3 & section-->
 
-<section style='padding:25px; 0px; 25px; 0px; background-color:#;' class="deal-of-week set-bg spad">
-  <div class="container">
+<section style='padding:25px; 0px; 25px; 0px;' class="deal-of-week set-bg spad">
+  <div class="w3-container ">
       <div class="row">
           <div class="col-lg-12">
               <div class="section-title">
@@ -432,7 +400,7 @@
               <p>We offer a diverse of online class sessions to learners
                 to access it easily regardless of location, cost and time. </p>
                 <br>
-              <p> Still don't have an account?<a style="color:blue" href="#"> Sign Up</a></p>
+              <p> Still don't have an account?<a style="color:orange;" href="#"> Sign Up</a></p>
                   
               </div>
           </div>
@@ -440,7 +408,7 @@
               <div class="single-latest-blog">
               <h3>Contact Us</h3><br>
                 <p>To leave us a message, please click the enquire button below.</p><br>
-                <a href="#"  class="site-btn">Enquire</a>
+                <a href="#"  class="w3-button w3-round w3-deep-orange">Enquire</a>
                   
               </div>
           </div>
@@ -453,7 +421,7 @@
 
 <!-- footer -->
 
-<footer class="footer-section">
+<footer class="footer-section ">
 
   <div class="container">
       <div class="row">

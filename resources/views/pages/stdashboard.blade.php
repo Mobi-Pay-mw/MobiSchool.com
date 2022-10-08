@@ -73,19 +73,20 @@
     </div>
 
     <div class="header-top nav-item">
-        <!--logo-->
-        <div class="col-lg-2 col-md-2 ">
+      <!--logo-->
+
+      <div class="w3-left">
         <div class="logo">
-        <a href="">MobiSchool</a>
+        <a style='color:#ffffff;' href="">MobiSchool</a>
         </div>
     </div>
       
         
-    <div class="header-top nav-item">
-        <!--logo-->
+    
+        <!--home -icon-->
         <div class="">
         <div class="">
-        <a href="/welcome" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
+        <a href="{{URL::to('/homepage')}}" style="padding:20px;" class ="fa fa-home" alt="Home" href="#"></a>
         </div>
     </div>
 
@@ -118,23 +119,26 @@
        
   </div>
     
- <!--search -->
- <div class="searchdiv" >
-        <div class="advanced-search " > 
-        <div class="input-group " >
-        <input  style='width:260px' type="text" placeholder=" Search what you need here" />
-        <button type="button"><i class="ti-search"></i></button>
-        </div>
-        </div>
+  <!--search -->
+    <div class="searchdiv" >
+                  <div class="advanced-search " > 
+                      <div class="input-group " >
+                          <input  style='width:260px' type="text" placeholder=" Search what you need here" />
+                          <button type="button"><i class="ti-search"></i></button>
+                      </div>
+                  </div>
     </div>
 
-  <!--log in & sign up -->
-  <div class=" w3-dropdown-hover">
- <button onclick="myDropFunc()" class="w3-button w3-circle w3-light-gray"><i class="fa fa-user"></i></button>
-    <div id="demoDrop" class="w3-dropdown-content w3-bar-block w3-deep-orange w3-card">
 
-      <a href="" class="w3-bar-item w3-button">Dashboard</a>
-      <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
+  <!--log in & sign up -->
+  
+ 
+  <div class="logdiv w3-dropdown-hover">
+    <button onclick="myDropFunc()" class="w3-button w3-circle w3-light-gray"><i class="fa fa-user"></i></button>
+    <div id="demoDrop" class="w3-dropdown-content w3-bar-block w3-deep-orange w3-card">
+    <a href="#" class="w3-bar-item w3-button">view profile</a>
+    <a href="{{URL::to('/stdashboard')}}" class="w3-bar-item w3-button">Dashboard</a>
+    <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
     </div>
   </div>
 
@@ -170,7 +174,7 @@
 
   <div id="Schedule" class="w3-container  tabcontent " style="display:none; height:480px;">
   <h3>Schedule</h3>
-  <p>Schedule will appear here.</p>
+  <p>Schedules will appear here.</p>
   </div>
 
   <div id="Live" class="w3-container  tabcontent " style="display:none; height:480px;">
