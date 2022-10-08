@@ -94,8 +94,8 @@
  <!--log in & sign up -->
 
             <div class="logdiv"> 
-              <a href="{{URL::to('/homepage')}}" class="w3-button w3-large w3-round w3-deep-orange">Login</a> 
-              <a href="{{URL::to('/thdashboard')}}"class="w3-button w3-large w3-round w3-deep-orange">Sign Up</a>
+              <a href="{{URL::to('/login')}}" class="w3-button w3-large w3-round w3-deep-orange">Login</a> 
+              <a href="{{URL::to('/reg')}}"class="w3-button w3-large w3-round w3-deep-orange">Sign Up</a>
             </div>
 
 </header>
