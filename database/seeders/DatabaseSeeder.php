@@ -515,7 +515,9 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 10; $i++)
         {
             $educator = Educator::create([
-                'name' => $faker->unique()->name()
+                'name' => $faker->unique()->name(),
+                'email' => $faker->unique()->email(),
+                'password' => bcrypt("0258520"),
             ]);
 
             array_push($educators, $educator);
@@ -527,6 +529,8 @@ class DatabaseSeeder extends Seeder
         {
             $student = Student::create([
                 'name' => $faker->unique()->name(),
+                'email' => $faker->unique()->email(),
+                'password' => bcrypt("0258520"),
                 'classroom_id' => $faker->randomElement($classrooms)['id']
             ]);
 
@@ -538,7 +542,9 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 20; $i++)
         {
             $admin = Administrator::create([
-                'name' => $faker->unique()->name()
+                'name' => $faker->unique()->name(),
+                'email' => $faker->unique()->email(),
+                'password' => bcrypt("0258520"),
             ]);
 
             array_push($admins, $admin);

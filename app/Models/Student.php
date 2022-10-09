@@ -3,15 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use HasFactory;
-    protected $fillable = ['name', 'classroom_id', 'student_id'];
+
+    protected $fillable = ['name', 'email', 'password', 'classroom_id'];
+
+    protected $guard = 'student';
 
     public function grade():HasMany
     {
@@ -32,6 +35,10 @@ class Student extends Model
     public function classroom(): BelongsTo
     {
         return $this->belongsTo(Classroom::class);
+    }
+
+    public function setPasswordAttribute($password){
+        return $this->attributes['password'] = bcrypt($password);
     }
     
 }

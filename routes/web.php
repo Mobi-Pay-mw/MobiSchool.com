@@ -54,11 +54,11 @@ Route::get('/about', function(){
 
 Route::get('/stdashboard', function(){
     return view('pages.stdashboard');
-});
+})->middleware('auth:student');
 
 Route::get('/thdashboard', function(){
     return view('pages.thdashboard');
-});
+})->middleware('auth:educator');
 
 Route::get('/homepage', function(){
     return view('pages.homepage');
@@ -92,6 +92,8 @@ Route::get('/reg',function()
 });
 
 Route::post('/session', [userauthcontroller::class, 'login']);
+
+Route::get('/logout', [userauthcontroller::class, 'logout']);
 
 Route::post('/registration', [registrationcontroller::class, 'store']);
 

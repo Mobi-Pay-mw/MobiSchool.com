@@ -1,5 +1,8 @@
 <?php
 
+//use Illuminate\Support\Facades\App;
+// use App\Models\Student;
+
 return [
 
     /*
@@ -36,9 +39,46 @@ return [
     */
 
     'guards' => [
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
+
+        'student-api' => [
+            'driver' => 'token',
+            'provider' => 'students',
+        ],
+
+        'educator' => [
+            'driver' => 'session',
+            'provider' => 'educators',
+        ], 
+
+        'educator-api' => [
+            'driver' => 'token',
+            'provider' =>  'educators',
+        ],
+
+        'administrator' => [
+            'driver' => 'session',
+            'provider' => 'administrators',
+        ],
+
+        'administrator-api' => [
+            'driver' => 'token',
+            'provider' => 'administrators',
         ],
     ],
 
@@ -60,9 +100,22 @@ return [
     */
 
     'providers' => [
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ], 
+        'educators' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Educator::class,
+        ], 
+        'administrators' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Administrator::class
         ],
 
         // 'users' => [
