@@ -141,7 +141,7 @@
     <div id="demoDrop" class="w3-dropdown-content w3-bar-block w3-deep-orange w3-card">
     <a href="#" class="w3-bar-item w3-button">view profile</a>
     <a href="{{URL::to('/stdashboard')}}" class="w3-bar-item w3-button">Dashboard</a>
-    <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
+    <a href="{{URL::to('/logout')}}" class="w3-bar-item w3-button">Log Out</a>
     </div>
   </div>
 
@@ -151,7 +151,7 @@
 <!-- Page Content -->
 
 <div class="container">
-  <h2>Greeting, {{ auth()->user()->name }}</h2>
+  <h2>Greeting, {{ auth('educator')->user()->name }}</h2>
 </div>
   <br>
 
@@ -170,9 +170,11 @@
 
 
   <div id="welcome" class="w3-container tabcontent" style="height:480px;">
-  {{ dd( auth()->user()->lesson ) }}
+  
   <h3>Welcome</h3>
-  <p>Let mobiSchools make work easier for you, select your task you want.</p>
+  <p>Let mobiSchools makes work easier for you, select the task you want.</p>
+
+  {{ dd( auth('educator')->user()->lesson ) }}
   </div>
 
 <div id="Schedule" class="w3-container  tabcontent " style="display:none; height:480px;">

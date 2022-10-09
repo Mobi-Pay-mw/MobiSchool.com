@@ -101,6 +101,17 @@
                 </div>
             
             </div>
+
+            @if($errors->any())
+                  <ul>
+                      @foreach($errors->all() as $error)
+                          <li class="text-danger p-1 m-1 text-left" style="font-size: small;"> {{$error}} </li>
+                      @endforeach
+                  </ul>
+
+                @endif
+
+              <p class="mt-3 mb-0 text-muted">© 2021–2022</p>
   
       </form>
 </div>  

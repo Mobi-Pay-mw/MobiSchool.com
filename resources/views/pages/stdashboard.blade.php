@@ -138,7 +138,7 @@
     <div id="demoDrop" class="w3-dropdown-content w3-bar-block w3-deep-orange w3-card">
     <a href="#" class="w3-bar-item w3-button">view profile</a>
     <a href="{{URL::to('/stdashboard')}}" class="w3-bar-item w3-button">Dashboard</a>
-    <a href="{{URL::to('/welcome')}}" class="w3-bar-item w3-button">Log Out</a>
+    <a href="{{URL::to('/logout')}}" class="w3-bar-item w3-button">Log Out</a>
     </div>
   </div>
 
