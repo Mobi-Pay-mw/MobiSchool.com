@@ -59,7 +59,7 @@ class RepositoryController extends Controller
 
     public function init ( )
     {
-        $this->educator_name_id = auth()->user()->name.'_'.auth()->user()->id;
+        $this->educator_name_id = auth('educator')->user()->name.'_'.auth('educator')->user()->id;
         $this->educator_subject_name_id;
     }
 }
