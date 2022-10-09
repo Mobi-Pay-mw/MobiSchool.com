@@ -72,13 +72,21 @@
 
 <header   class="header-section ">
  <!-- notification panel --> 
- <div id="id01" class="w3-container w3-light-gray">
-        <p class="w3-center" style="padding-top:10px;">
-        <b>MobiSchool's New App is now available on Google Play Store!</b> 
-            <button class="w3-button w3-small w3-round w3-deep-orange ">Download</button> 
-            <button onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-deep-orange w3-button w3-circle">×</button></p>
-            
-    </div>
+    @if ( session()->has( 'success' ) )
+      
+      @auth( 'educator' )
+
+        <div id="id01" class="w3-container w3-light-gray">
+          <p class="w3-center" style="padding-top:10px;">
+          <b> {{session('success')}} {{auth()->guard('educator')->user()->name}} </b> 
+               
+          <button onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-deep-orange w3-button w3-circle">×</button></p>
+
+        </div>
+
+      @endauth
+
+    @endif
 
     <div class="header-top nav-item">
       <!--logo-->
@@ -155,13 +163,13 @@
 
 <!-- Page Content -->
 
-<div class="container">
-  <h2>Greeting, {{ auth('educator')->user()->name }}</h2>
-</div>
+<!-- <div class="container">
+  <h2>{{ auth('educator')->user()->name }}</h2>
+</div> -->
   <br>
 
 <div class="w3-sidebar w3-bar-block w3-light-grey w3-card">
-  <h2 class="w3-center">Teachers' Dashboard</h2>
+  <h2 class="w3-center">{{auth('educator')->user()->name}}s' Dashboard</h2>
   <br>
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Schedule')"> Create Schedule</button>
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Live')"> Start Live Class</button>
@@ -179,7 +187,28 @@
   <h3>Welcome</h3>
   <p>Let mobiSchools makes work easier for you, select the task you want.</p>
 
-  {{ dd( auth('educator')->user()->lesson ) }}
+  @foreach ( auth('educator')->user()->lesson as $lesson )
+    
+    @if ( $lesson->repo->count() === 0 )
+      
+      <div class="w3-card" style="background-color: orange; margin-bottom: 2%">
+      {{ $lesson->module->course->name }}
+
+      <form action="/upload_content" method="post" enctype="multipart/form-data">
+        @csrf
+        <label>Select Content</label>
+          <input type="file" name="content" required>
+
+        <input type="submit" value="Upload" name="submit">
+        <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
+      </form>
+      </div>
+
+    @endif
+    
+  @endforeach
+    
+ 
   </div>
 
 <div id="Schedule" class="w3-container  tabcontent " style="display:none; height:480px;">

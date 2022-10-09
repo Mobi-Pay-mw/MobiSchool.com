@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
+use App\Models\Repository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
@@ -12,7 +14,6 @@ class RepositoryController extends Controller
     protected $educator_subject_name_id;
     protected $subject_module_name_id_date;
     protected $lesson_name_id_date;
-    protected $uploadOk = true;
     protected $fileType;
     protected $target_dir = "Repo/";
     protected $extension = array('mp4'=> 0, 'mov'=>1, 'wmv'=>2, 
@@ -22,11 +23,18 @@ class RepositoryController extends Controller
     //
     public function contentStore(Request $request)
     {
-        $this->fileType = $request->file('content')->extension();
+        $lesson = Lesson::find( (int) $request->lesson_id );
+
+        $this->fileType = $request->file('content')->extension();      
 
         if ( array_key_exists($this->fileType, $this->extension) )
         {
-            $done = $request->file('content')->storeAs("Repo/TeacherName_Id_date/Subject/Module/Lesson_ID", 'LessonName.'.$this->fileType);
+            $done = $request->file('content')->storeAs(
+                "Repo/".auth('educator')->user()->name."_"
+                .auth('educator')->user()->id."/".$lesson->module->course->name.
+                "/".$lesson->module->name."/".$lesson->name."_".$lesson->id, $lesson->name.".".$this->fileType);
+
+                //dd( $done );
 
             if ($done)
             {
@@ -41,6 +49,13 @@ class RepositoryController extends Controller
                         ->toDisk('local')
                         ->inFormat(new \FFMpeg\Format\Audio\MP3)
                         ->save( str_replace( '/storage', '', str_replace( $this->fileType, 'mp3',Storage::url($done) ) ) );
+
+                $repo = Repository::create([
+                    'lesson_id' => (int) $request->lesson_id,
+                    'url' => $done
+                ]);
+
+                return back()->with('success', 'successfully uploaded content, Repo updated '. $repo->url);
 
             }
         }

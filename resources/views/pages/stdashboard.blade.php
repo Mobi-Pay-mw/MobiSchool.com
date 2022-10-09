@@ -69,13 +69,21 @@
 
 <header   class="header-section ">
  <!-- notification panel --> 
- <div id="id01" class="w3-container w3-light-gray">
-        <p class="w3-center" style="padding-top:10px;">
-        <b>MobiSchool's New App is now available on Google Play Store!</b> 
-            <button class="w3-button w3-small w3-round w3-deep-orange ">Download</button> 
-            <button onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-deep-orange w3-button w3-circle">×</button></p>
-            
-    </div>
+ @if ( session()->has( 'success' ) )
+      
+      @auth( 'educator' )
+
+        <div id="id01" class="w3-container w3-light-gray">
+          <p class="w3-center" style="padding-top:10px;">
+          <b> {{session('success')}} {{auth()->guard('educator')->user()->name}} </b> 
+               
+          <button onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-deep-orange w3-button w3-circle">×</button></p>
+
+        </div>
+
+      @endauth
+
+    @endif
 
     <div class="header-top nav-item">
       <!--logo-->
