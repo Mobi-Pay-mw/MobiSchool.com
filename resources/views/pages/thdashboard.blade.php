@@ -185,29 +185,7 @@
   <div id="welcome" class="w3-container tabcontent" style="height:480px;">
   
   <h3>Welcome</h3>
-  <p>Let mobiSchools makes work easier for you, select the task you want.</p>
-
-  @foreach ( auth('educator')->user()->lesson as $lesson )
-    
-    @if ( $lesson->repo->count() === 0 )
-      
-      <div class="w3-card" style="background-color: orange; margin-bottom: 2%">
-      {{ $lesson->module->course->name }}
-
-      <form action="/upload_content" method="post" enctype="multipart/form-data">
-        @csrf
-        <label>Select Content</label>
-          <input type="file" name="content" required>
-
-        <input type="submit" value="Upload" name="submit">
-        <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
-      </form>
-      </div>
-
-    @endif
-    
-  @endforeach
-    
+  <p>Let mobiSchools makes work easier for you, select the task you want.</p>   
  
   </div>
 
@@ -252,6 +230,27 @@
   <div id="Video" class="w3-container  tabcontent" style="display:none; height:480px;">
   <h3>Upload video</h3>
   <p>Videos will appear here.</p>
+
+  @foreach ( auth('educator')->user()->lesson as $lesson )
+    
+    @if ( $lesson->repo->count() === 0 )
+      
+      <div class="w3-card" style="background-color: orange; margin-bottom: 2%">
+      {{ $lesson->module->course->name }}
+
+      <form action="/upload_content" method="post" enctype="multipart/form-data">
+        @csrf
+        <label>Select Content</label>
+          <input type="file" name="content" required>
+
+        <input type="submit" value="Upload" name="submit">
+        <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
+      </form>
+      </div>
+
+    @endif
+    
+  @endforeach
   </div>
 
   <div id="Lessons" class="w3-container  tabcontent" style="display:none; height:480px;">
