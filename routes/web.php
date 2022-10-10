@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssesmentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\registrationcontroller;
@@ -63,6 +63,11 @@ Route::get('/thdashboard', function(){
 Route::get('/homepage', function(){
     return view('pages.homepage');
 });
+
+// Callendar
+
+Route::get('fullcalendar', [HomeController::class, 'Chartjs']);
+
 
 
 // user management
