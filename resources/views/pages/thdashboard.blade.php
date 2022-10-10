@@ -261,6 +261,7 @@
   <div id="Assignments" class="w3-container  tabcontent" style="display:none; height:480px;">
   <h3>Assignments</h3>
   <p>Assignments will appear here</p>
+  <a href="/asses" class="site-btn">Go To Assessment</a>
   </div>
 
   <div id="Feedback" class="w3-container tabcontent" style="display:none; height:480px;">

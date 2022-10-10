@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssesmentController;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\RepositoryController;
@@ -100,12 +101,12 @@ Route::post('/registration', [registrationcontroller::class, 'store']);
 
 //content upload
 
-Route::post('/upload_content', [RepositoryController::class, 'contentStore']);
+Route::post('/upload_content', [RepositoryController::class, 'contentStore'])->middleware('auth:educator');
 
 
 // Assessment Management
 
-Route::get('asses', [AssesmentController::class, 'index']);
+Route::get('/asses', [AssesmentController::class, 'index'])->middleware('auth:educator');
 
 Route::get('/assesmake', [AssesmentController::class, 'create']);
 
@@ -131,7 +132,7 @@ Route::put('/queupdate/{id}', [QuestionController::class, 'update']);
 Route::get('/quedelete/{id}', [QuestionController::class, 'destroy']);
 
 
-Route::get('/exam', [ExamController::class, 'index']);
+Route::get('/exam', [ExamController::class, 'index'])->middleware('auth:student');
 
 Route::get('/quizshow/{id}', [ExamController::class, 'show']);
 

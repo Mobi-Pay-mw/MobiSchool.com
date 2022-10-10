@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Assesment;
 use App\Models\Lesson;
 use App\Models\Question;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use PhpParser\ErrorHandler\Collecting;
 
 class AssesmentController extends Controller
 {
@@ -14,9 +16,17 @@ class AssesmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $asses = Assesment::get();
+        $asses = collect();
+
+
+        foreach ( auth()->user()->lesson as $lesson )
+        {
+            $asses->push( $lesson->assesment );
+        }
+
         return view('Assesment.Teacher.Assesment')->with('asses', $asses);
     }
 

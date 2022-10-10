@@ -26,7 +26,7 @@ class Lesson extends Model
         return $this->hasOneThrough(Course::class, Modules::class);
     }
 
-    public function assessment():HasOne
+    public function assesment():HasOne
     {
         return $this->hasOne(Assesment::class);
     }

@@ -71,11 +71,11 @@
  <!-- notification panel --> 
  @if ( session()->has( 'success' ) )
       
-      @auth( 'educator' )
+      @auth( 'student' )
 
         <div id="id01" class="w3-container w3-light-gray">
           <p class="w3-center" style="padding-top:10px;">
-          <b> {{session('success')}} {{auth()->guard('educator')->user()->name}} </b> 
+          <b> {{session('success')}} {{auth()->guard('student')->user()->name}} </b> 
                
           <button onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-deep-orange w3-button w3-circle">×</button></p>
 
@@ -160,7 +160,7 @@
 
 <!-- Page Content -->
 <div class="w3-container">
-  <h2>Greeting, User! [Learner]</h2>
+  <h2>Greeting, {{auth('student')->user()->name}}</h2>
 </div>
 <br>
 
@@ -203,6 +203,7 @@
   <div id="Assignments" class="w3-container  tabcontent" style="display:none; height:480px;">
   <h3>Assignments</h3>
   <p>Assignments will appear here</p>
+  <a href="/exam" class="site-btn">Take Exam</a>
   </div>
 
   <div id="eBooks" class="w3-container tabcontent" style="display:none; height:480px;">
