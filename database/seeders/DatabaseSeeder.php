@@ -28,6 +28,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 
 use Faker;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -599,7 +600,8 @@ class DatabaseSeeder extends Seeder
         {
             $book = Library::create([
                 'name' => $faker->unique()->name(),
-                'course_id' => $faker->randomElement( $subjects )['id']
+                'course_id' => $faker->randomElement( $subjects )['id'],
+                'url' => "Chapter8-HamiltonianPathsandCycles.pdf"
             ]);
 
             array_push($books, $book);

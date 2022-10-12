@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float( 'price' )->default(0.0);
             $table->enum( 'audience' , ['primary', 'secondary', 'tertiary'] );
             $table->enum( 'resource_type', ['audio_book', 'document'] );
+            $table->text( 'url' );
 
             $table->timestamps();
 

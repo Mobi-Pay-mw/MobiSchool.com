@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Library extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'course_id', 'price', 'audience', 'resource_type', 'url'];
 
     public function course():BelongsToMany
     {

@@ -181,6 +181,18 @@
   <div id="bookPrimary" class="w3-container tabcontent " style="display:none; height:480px;">
   <h3>Primary eBooks</h3>
   <p>All primary eBooks will appear here.</p>
+  <div class="w3-row">
+    
+    @foreach ( $books as $book )
+
+      @if ( $book->resource_type === "document" )
+        <div class="w3-green w3-container w3-quarter w3-margin">
+          <x-lib-card :book="$book" />
+        </div>
+      @endif
+
+    @endforeach
+  </div>
   </div>
 
   <div id="bookSecondary" class="w3-container tabcontent " style="display:none; height:480px;">
@@ -196,6 +208,19 @@
   <div id="audioPrimary" class="w3-container tabcontent " style="display:none; height:480px;">
   <h3>Primary audiobooks</h3>
   <p>All primary audiobooks will appear here.</p>
+
+  <div class="w3-row">
+    
+    @foreach ( $books as $book )
+
+      @if ( $book->resource_type === "audio_book" )
+        <div class="w3-green w3-container w3-quarter w3-margin">
+          <x-lib-audio :book="$book" />
+        </div>
+      @endif
+
+    @endforeach
+  </div>
   </div>
 
   <div id="audioSecondary" class="w3-container tabcontent " style="display:none; height:480px;">
