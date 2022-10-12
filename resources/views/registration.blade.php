@@ -66,7 +66,7 @@
                     </div>
                     Class<br>
                     <input 
-                        name="class" 
+                        name="classroom_id" 
                         class="form-control" 
                         placeholder="class" 
                         required

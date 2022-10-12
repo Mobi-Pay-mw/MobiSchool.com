@@ -6,6 +6,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\RepositoryController;
 use App\Http\Controllers\userauthcontroller;
+use App\Models\Library;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +46,7 @@ Route::get('/tertiary', function(){
 });
 
 Route::get('/library', function(){
-    return view('pages.library');
+    return view('pages.library', ['books' => Library::all()]);
 });
 
 Route::get('/about', function(){
@@ -59,6 +60,10 @@ Route::get('/stdashboard', function(){
 Route::get('/thdashboard', function(){
     return view('pages.thdashboard');
 })->middleware('auth:educator');
+
+Route::get('/admin-dashboard', function(){
+    return view('pages.admin-dashboard');
+})->middleware('auth:administrator');
 
 Route::get('/homepage', function(){
     return view('pages.homepage');
@@ -101,6 +106,8 @@ Route::post('/registration', [registrationcontroller::class, 'store']);
 //content upload
 
 Route::post('/upload_content', [RepositoryController::class, 'contentStore'])->middleware('auth:educator');
+
+Route::post("/admin_upload", [RepositoryController::class, 'elibUpload'])->name('admin_upload')->middleware('auth:administrator');
 
 
 // Assessment Management

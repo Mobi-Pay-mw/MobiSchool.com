@@ -22,7 +22,7 @@ class registrationcontroller extends Controller
         $validated = request()->validate([
             'name'=>'required',
             'phone'=>'required',
-            'class'=>'required',
+            'classroom_id'=>'required',
             'password'=>'required',
             'email'=>'required',
         ]);
@@ -31,6 +31,6 @@ class registrationcontroller extends Controller
 
         Auth::guard( 'student' )->login($user );
 
-        return redirect('stdashboard')->with('success' ,'New account has been created for');
+        return redirect('stdashboard' )->with('success' ,'New account has been created for');
     }
 }

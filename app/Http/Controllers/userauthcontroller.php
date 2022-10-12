@@ -84,6 +84,11 @@ class userauthcontroller extends Controller
 
                 return redirect('stdashboard')->with('success', 'welcome back');
             }
+
+            // the user was not logged in, some error with the credentials
+            return back()->withErrors([
+                'error' => 'The provided credentials do not match our records.'
+            ]);
         }
 
         // (2) if the credentials belong to a educator authenticate the educator
@@ -101,6 +106,11 @@ class userauthcontroller extends Controller
 
                 return redirect('thdashboard')->with('success', 'welcome back');
             }
+
+            // the user was not logged in, some error with the credentials
+            return back()->withErrors([
+                'error' => 'The provided credentials do not match our records.'
+            ]);
         }
 
          // (3) if the credentials belong to a Administator authenticate the Administator
@@ -116,14 +126,10 @@ class userauthcontroller extends Controller
             {
                 $request->session()->regenerate();
 
-                return redirect('welcome')->with('success', 'welcome back');
+                return redirect('admin-dashboard')->with('success', 'welcome back');
             }
-         }
 
-         // (4) if the credentials provided dont belong to anyone in the system return back with an error message
-
-         else
-         {
+            // the user was not logged in, some error with the credentials
             return back()->withErrors([
                 'error' => 'The provided credentials do not match our records.'
             ]);

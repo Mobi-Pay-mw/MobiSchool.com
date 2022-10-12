@@ -71,11 +71,11 @@
  <!-- notification panel --> 
  @if ( session()->has( 'success' ) )
       
-      @auth( 'student' )
+      @auth( 'administrator' )
 
         <div id="id01" class="w3-container w3-light-gray">
           <p class="w3-center" style="padding-top:10px;">
-          <b> {{session('success')}} {{auth()->guard('student')->user()->name}} </b> 
+          <b> {{session('success')}} {{auth()->guard('administrator')->user()->name}} </b> 
                
           <button onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-deep-orange w3-button w3-circle">×</button></p>
 
@@ -160,20 +160,20 @@
 
 <!-- Page Content -->
 <div class="w3-container">
-  <h2>Greeting, {{auth('student')->user()->name}}</h2>
+  <h2>Greeting, {{auth('administrator')->user()->name}}</h2>
 </div>
 <br>
 
 <div class="w3-sidebar w3-bar-block w3-light-grey w3-card">
  
-  <h2 class="w3-center">Learners' Dashboard</h2>
+  <h2 class="w3-center">administrator's Dashboard</h2>
   <br>  
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Programs')">Programs</button>
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Schedule')">Schedule</button>
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Live')">Live Class</button>
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Lessons')">Lessons</button>
   <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'Assignments')">Assignments</button>
-  <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'eBooks')">My Books</button>
+  <button class="w3-bar-item w3-button tablinks" onclick="openCity(event, 'eBooks')">Library Invent</button>
 </div>
 
 <div style="margin-left:200px;" class="w3-card-4">
@@ -207,10 +207,10 @@
   </div>
 
   <div id="eBooks" class="w3-container tabcontent" style="display:none; height:480px;">
-  <h3>My Books</h3>
+  <h3>Adding Books</h3>
   <p>eBooks for a student will here</p>
-  <!-- <iframe src="../../../storage/app/Chapter8-HamiltonianPathsandCycles.pdf" frameborder="10"></iframe> -->
-  {{ Storage::disk( 'local' )->path( 'Chapter8-HamiltonianPathsandCycles.pdf' ) }}
+
+  <x-file-upload />
 
   </div>
 </div>
