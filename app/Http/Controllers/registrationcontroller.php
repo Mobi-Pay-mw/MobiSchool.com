@@ -22,7 +22,7 @@ class registrationcontroller extends Controller
         $validated = request()->validate([
             'name'=>'required',
             'phone'=>'required',
-            'classroom_id'=>'required',
+            'class'=>'required',
             'password'=>'required',
             'email'=>'required',
         ]);
