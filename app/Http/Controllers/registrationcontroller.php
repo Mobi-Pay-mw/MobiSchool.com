@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 
@@ -18,35 +19,18 @@ class registrationcontroller extends Controller
 
     public function store(){
 
-$validated = request()->validate([
-'name'=>'required',
-'phone'=>'required',
-'class'=>'required',
-'password'=>'required',
-'email'=>'required',
-]);
+        $validated = request()->validate([
+            'name'=>'required',
+            'phone'=>'required',
+            'class'=>'required',
+            'password'=>'required',
+            'email'=>'required',
+        ]);
 
+        $user = Student::create($validated);
 
-    $user = User::create($validated);
-    Auth::login($user);
+        Auth::guard( 'student' )->login($user );
 
-    $role=auth::user()->role;
-    if ($role==1)
-    {
-        return view('/admin');
-    }
-
-    if ($role==2)
-    {
-        return view('pages.thdashboard');
-    }
-
-   else 
-    {
-        return view('pages.stdashboard');
-    }
+        return redirect('stdashboard')->with('success' ,'New account has been created for');
     }
 }
-
-
-  

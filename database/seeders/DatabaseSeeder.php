@@ -6,6 +6,8 @@ namespace Database\Seeders;
 
 use App\Models\Administrator;
 use App\Models\Assesment;
+use App\Models\Borrow;
+use App\Models\Category;
 use App\Models\Classroom;
 use App\Models\Course;
 use App\Models\Curriculum;
@@ -21,6 +23,7 @@ use App\Models\Programme;
 use App\Models\Question;
 use App\Models\Repository;
 use App\Models\Student;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -485,14 +488,29 @@ class DatabaseSeeder extends Seeder
             $curri_12,$curri_13,$curri_14,$curri_15,
             $curri_16,$curri_17,$curri_18,$curri_19,
             $curri_20,$curri_21,$curri_22,$curri_23,
-            $curri_24,$curri_25,$curri_26,$curri_27,$curri_28,$curri_29);
+            $curri_24,$curri_25,$curri_26,$curri_27,$curri_28,$curri_29)
+        ;
+
+        $categories = array();
+
+        for ( $i = 0; $i < 50; $i++ )
+        {
+            $category = Category::create([
+                'name' => $faker->country()
+            ]);
+
+            array_push( $categories, $category );
+        }
+
+        
 
         $subjects = array();
 
-        for ($i = 0; $i < 50; $i++)
+        foreach ($categories as $category)
         {
             $course = Course::create([
-                'name' => $faker->unique()->name()
+                'name' => $faker->unique()->name(), 
+                'category_id' => $category->id
             ]);
 
             array_push($subjects, $course);
@@ -580,7 +598,8 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 30; $i++)
         {
             $book = Library::create([
-                'name' => $faker->unique()->name()
+                'name' => $faker->unique()->name(),
+                'course_id' => $faker->randomElement( $subjects )['id']
             ]);
 
             array_push($books, $book);
@@ -616,7 +635,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($assessments as $assessment)
         {
-            $grade = Grade::create([
+            Grade::create([
                 'score' => $faker->numberBetween(0, 100),
                 'assesment_id' => $assessment->id,
                 'question_id' => $faker->randomElement($questions)['id'],
@@ -642,6 +661,31 @@ class DatabaseSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'password' => bcrypt('1234567890')
+            ]);
+        }
+
+        $transactions = array();
+
+        for ( $i = 0; $i < 10; $i++ )
+        {
+            $trans = Transaction::create([
+                'student_id' => $faker->randomElement( $students )['id'],
+                'library_id' => $faker->randomElement( $books )['id'],
+                'type' => $faker->randomElement( ["borrow", "buy", "loan"] ),
+            ]);
+
+            array_push( $transactions,$trans );
+        }
+
+        foreach ( $transactions as $transaction )
+        {
+            Borrow::create([
+
+                'student_id' => $transaction->student_id,
+                'library_id' =>  $transaction->library_id,
+                'transaction_id' =>  $transaction -> id,
+                'return_date' => $faker->date( 'Y-m-d', ( time() + 10 ) ),
+                'borrow_date' => $transaction->created_at,
             ]);
         }
 

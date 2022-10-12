@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
 
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')
@@ -29,6 +28,8 @@ return new class extends Migration
                 ->on('libraries')
             ;
             $table->enum("type", ["borrow", "buy", "loan"]);
+
+            $table->timestamps();
         });
     }
 
