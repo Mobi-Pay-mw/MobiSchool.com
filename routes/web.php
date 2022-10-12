@@ -52,7 +52,6 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-
 Route::get('/stdashboard', function(){
     return view('pages.stdashboard');
 })->middleware('auth:student');

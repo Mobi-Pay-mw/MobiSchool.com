@@ -54,11 +54,10 @@ class userauthcontroller extends Controller
 
     public function login (Request $request)
     {
+        //dd( "trying to login..." );
         // email and password from the current request data sent with post from the form
 
         $useremail = $request->email;
-
-        $password = $request->password;
 
         // check the table that has the email provided (which user is trying to login essentailly)
 

@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
+
+            $table->string("name");
+            $table->foreignId( 'course_id' );
+            $table->float( 'price' )->default(0.0);
+            $table->enum( 'audience' , ['primary', 'secondary', 'tertiary'] );
+            $table->enum( 'resource_type', ['audio_book', 'document'] );
+
             $table->timestamps();
 
             // $table->unsignedBigInteger('course_id');
@@ -22,7 +29,7 @@ return new class extends Migration
             //     ->references('id')
             //     ->on('courses')
             // ;
-            $table->string("name");
+
         });
     }
 
