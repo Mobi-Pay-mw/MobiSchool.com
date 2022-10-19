@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
 </head>
 <body>
-    <a href="{{ URL::to('asses') }}"><button type="submit">Back</button></a>
-    <a href="{{ URL::to('quemake/') }}"><button type="submit">Add Question</button></a>
-    {{-- @if (count($asses) > 0) --}}
+    
+    @if (count($asses) > 0)
+        <a href="{{ URL::to('asses') }}"><button type="submit">Back</button></a>
+        {{-- <a href="{{ URL::to('quemake') }}"><button type="submit">Add Question</button></a> --}}
+        <form action="{{ URL::to('assesesion') }}" method="post">
+            @csrf
+            <input type="hidden" name="id" value="{{ $id }}">
+            <input type="submit" value="Submit">
+        </form>
         @foreach ($asses as $item)
             <article>
                 <h3>{{ $item->question }}</h3>
@@ -28,7 +34,7 @@
                 <hr>
             </article>
         @endforeach
-    {{-- @endif --}}
+    @endif
 
 </body>
 </html>

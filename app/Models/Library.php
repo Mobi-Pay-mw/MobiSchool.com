@@ -22,4 +22,14 @@ class Library extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    /**
+     * The roles that belong to the Library
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function Borrow(): BelongsToMany
+    {
+        return $this->belongsToMany(Borrow::class);
+    }
 }

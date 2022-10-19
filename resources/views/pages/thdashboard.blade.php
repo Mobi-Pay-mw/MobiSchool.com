@@ -262,6 +262,18 @@
   <h3>Assignments</h3>
   <p>Assignments will appear here</p>
   <a href="/asses" class="site-btn">Go To Assessment</a>
+    {{-- <div class="w3-row">
+      @foreach ( $asses as $item )
+        <div class="w3-green w3-container w3-quarter w3-margin">
+          <a href="{{ URL::to('assesmake') }}"><button type="submit">Add</button></button></a>
+          @if (count($asses) > 0)
+              @foreach ($asses as $item)
+                  <x-asses />
+              @endforeach
+          @endif
+        </div>
+      @endforeach
+    </div> --}}
   </div>
 
   <div id="Feedback" class="w3-container tabcontent" style="display:none; height:480px;">

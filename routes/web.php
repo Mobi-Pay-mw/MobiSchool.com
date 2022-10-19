@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AssesmentController;
+use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\registrationcontroller;
 use App\Http\Controllers\RepositoryController;
@@ -54,7 +56,7 @@ Route::get('/about', function(){
 });
 
 Route::get('/stdashboard', function(){
-    return view('pages.stdashboard');
+    return view('pages.stdashboard', ['books' => Library::all()]);
 })->middleware('auth:student');
 
 Route::get('/thdashboard', function(){
@@ -112,6 +114,10 @@ Route::post("/admin_upload", [RepositoryController::class, 'elibUpload'])->name(
 
 // Assessment Management
 
+// Route::get('/asses', function(){
+//     return view('pages.library', ['books' => Library::all()]);
+// });
+
 Route::get('/asses', [AssesmentController::class, 'index'])->middleware('auth:educator');
 
 Route::get('/assesmake', [AssesmentController::class, 'create']);
@@ -129,6 +135,8 @@ Route::get('/assesdelete/{id}', [AssesmentController::class, 'destroy']);
 
 Route::get('/quemake', [QuestionController::class, 'create']);
 
+Route::post('/assesesion', [QuestionController::class, 'create']);
+
 Route::post('/questore', [QuestionController::class, 'store']);
 
 Route::get('/queedit/{id}', [QuestionController::class, 'edit']);
@@ -145,3 +153,15 @@ Route::get('/quizshow/{id}', [ExamController::class, 'show']);
 Route::post('/quizstore', [ExamController::class, 'store']);
 
 Route::get('/result', [ExamController::class, 'results']);
+
+//Library
+
+Route::get('/borrow/{id}', [BorrowController::class, 'create']);
+
+//To store borrowed books.
+
+Route::post('/borrowstore', [BorrowController::class, 'store']);
+
+//Borrowed books
+
+ROute::get('/borrowed', [BorrowController::class, 'index'])->middleware('auth:student');;

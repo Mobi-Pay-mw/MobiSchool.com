@@ -20,10 +20,10 @@ class Borrow extends Model
 
     public function books (): HasMany
     {
-        return $this->hasMany( Library::class );
+        return $this->hasMany( Library::class, 'id' );
     }
 
-    public function tranaction (): HasOne
+    public function tranaction(): HasOne
     {
         return $this->hasOne( Transaction::class );
     }

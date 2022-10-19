@@ -5,7 +5,12 @@
     <h3>{{ $book->name }}</h3>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAkxdJVIlh-HQwPa3zLlF0wKcsWnPy54z7kg&usqp=CAU" alt="Avatar" style="width:50%">
 
-    <button onclick="document.getElementById('id0{{ $book->id }}').style.display='block'" class="w3-button">Open Modal</button>
+    {{-- <button onclick="document.getElementById('id0{{ $book->id }}').style.display='block'" class="w3-button">Open Modal</button> --}}
+    <hr>
+    @if (Auth::user('administrator'))
+      <button onclick="document.getElementById('id0{{ $book->id }}').style.display='block'" class="w3-button">Open Modal</button>
+    @endif
+    
   </div>
 
 </div>

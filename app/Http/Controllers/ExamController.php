@@ -71,7 +71,8 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd();
+        //
         $que['que']=$request->get('que');
         $answer=$request->get('option');
         foreach ($answer as $key => $value)
@@ -80,7 +81,7 @@ class ExamController extends Controller
             $grade=new Grade;
             $grade->assesment_id=$question->assesment_id;
             $grade->question_id=$question->id;
-            $grade->student_id=auth()->user()->id;
+            $grade->student_id=auth('student')->user()->id;
             if ($question->answer == $value) {
                 $grade->score=$question->marks;
                 // echo $quest." = ".$answer."  ";
@@ -113,14 +114,27 @@ class ExamController extends Controller
      */
     public function results()
     {
-        $user_id=auth()->user()->id;
-        $asses=Assesment::get();
-        foreach ($asses as $asse ) {
-            $teares=Question::get()->where('assesment_id', $asse->id);
-            $studres=Grade::get()->where('assesment_id', $asse->id)->where('student_id', $user_id);
-            echo $studres->sum('score').' out of '.$teares->sum('marks');
-            break;
+        
+        // $user_id=auth('student')->user()->id;
+
+        // $grades=Grade::get()->where('student_id', $user_id)->sum('score');
+        // dd($grades);
+        $asses = collect();
+        foreach ( auth('student')->user()->grade as $lesson )
+        {
+            $asses->push( $lesson->assesment );
         }
+
+        dd($asses);
+        // $asses=Assesment::get();
+        // foreach ($asses as $asse ) {
+        //     // $teares=Question::get()->where('assesment_id', $asse->id);
+        //     // dd($teares);
+        //     $studres=Grade::get()->where('assesment_id', $asse->id)->where('student_id', $user_id);
+        //     dd($studres);
+        // //     // echo $studres->sum('score').' out of '.$teares->sum('marks');
+        // //     // break;
+        // }
     }
 
     /**

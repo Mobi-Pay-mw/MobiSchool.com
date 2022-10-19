@@ -211,7 +211,28 @@
   <p>eBooks for a student will here</p>
   <!-- <iframe src="../../../storage/app/Chapter8-HamiltonianPathsandCycles.pdf" frameborder="10"></iframe> -->
   {{ Storage::disk( 'local' )->path( 'Chapter8-HamiltonianPathsandCycles.pdf' ) }}
+  <a href="{{ URL::to('borrowed') }}" class="site-btn">My Books</a>
+  <hr>
+  {{-- <h3>Books</h3> --}}
+  @foreach ( $books as $book )
 
+    @if ( $book->resource_type === "document" )
+      <div class="w3-green w3-container w3-quarter w3-margin">
+        <x-lib-card :book="$book" />
+      </div>
+    @endif
+
+    @endforeach
+
+    {{-- @foreach ( $books as $book )
+
+      @if ( $book->resource_type === "audio_book" )
+        <div class="w3-green w3-container w3-quarter w3-margin">
+          <x-lib-audio :book="$book" />
+        </div>
+      @endif
+
+    @endforeach --}}
   </div>
 </div>
 

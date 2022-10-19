@@ -23,9 +23,12 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        return view('assesment.teacher.question.create');
+        $req->session()->put('les_id', $req->input('id'));
+        if($req != ""){
+            return view('assesment.teacher.question.create');
+        }
     }
 
     /**
@@ -47,8 +50,7 @@ class QuestionController extends Controller
         ]);
 
         $question=new Question;
-        $asses=Assesment::get()->last();
-        $question->assesment_id=$asses->id;
+        $question->assesment_id=session('les_id');
         $question->question=$value['question'];
         $question->answer=$value['answer'];
         $question->marks=$value['marks'];

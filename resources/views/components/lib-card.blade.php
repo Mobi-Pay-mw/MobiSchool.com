@@ -4,8 +4,13 @@
   <div class="w3-container w3-center">
     <h3>{{ $book->name }}</h3>
     <img src="https://st2.depositphotos.com/1055089/5923/v/950/depositphotos_59232215-stock-illustration-modern-vector-book-cover-template.jpg" alt="Avatar" style="width:50%">
-
-    <button onclick="document.getElementById('id0{{ $book->id }}').style.display='block'" class="w3-button">Open Modal</button>
+    <hr>  
+    {{-- @if (Auth::user('administrator')) --}}
+      <button onclick="document.getElementById('id0{{ $book->id }}').style.display='block'" class="w3-button">Open Modal</button>
+    {{-- @endif --}}
+    @if (Auth::user('student'))
+      <a href="{{ URL::to('borrow/'.$book->id) }}" class="w3-button">Borrow</a>
+    @endif
   </div>
 
 </div>

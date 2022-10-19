@@ -28,6 +28,7 @@ return new class extends Migration
                 ->on('libraries')
             ;
             $table->enum("type", ["borrow", "buy", "loan"]);
+            // $table->foreignId( 'borrow_id' );
 
             $table->timestamps();
         });

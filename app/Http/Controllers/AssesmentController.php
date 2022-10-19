@@ -20,14 +20,32 @@ class AssesmentController extends Controller
     public function index()
     {
         $asses = collect();
-
-
         foreach ( auth()->user()->lesson as $lesson )
         {
             $asses->push( $lesson->assesment );
         }
+        echo $asses;
+        
+        // dd(auth('educator')->user()->id);
+        // $asses=Assesment::with('lesson')->where('lesson.educator_id', auth('educator')->user()->id)->get();
 
+        //Return all assessments lessons for a particular user.
+        // $asses="";
+        // $less=lesson::where('educator_id', auth('educator')->user()->id)->get();
+        // foreach ($less as $key => $value) {
+        //     // echo $key;
+        //     if(session()->has('les_id')){
+        //         session()->pull('les_id');
+        //     }
+        //     //return all assement for that particular lesson
+        //     $asses=Assesment::where('lesson_id', $value->id)->get();
+        //     // echo $asses;
+        //     // continue;
+        // }
         return view('Assesment.Teacher.Assesment')->with('asses', $asses);
+        
+        // // dd(session('les_id'));
+        // return redirect('thdashboard');
     }
 
     /**
@@ -37,6 +55,8 @@ class AssesmentController extends Controller
      */
     public function create()
     {
+        // dd(auth()->user()->lesson);
+        //Store the lesson_id in a session.
         return view('Assesment.Teacher.Createasses');
     }
 
@@ -52,9 +72,8 @@ class AssesmentController extends Controller
             'type'=>'required',
             'status'=>'required'
         ]);
-
+        $less=Lesson::where('educator_id', auth('educator')->user()->id)->get()->last();
         $asses=new Assesment;
-        $less=Lesson::get()->first();
         $asses->lesson_id=$less->id;
         $asses->name=$values['type'];
         $asses->status=$values['status'];
@@ -76,7 +95,7 @@ class AssesmentController extends Controller
     public function show($id)
     {
         $asses=Question::get()->where('assesment_id', $id);
-        return view('Assesment.Teacher.Question.index')->with('asses', $asses);
+        return view('Assesment.Teacher.Question.index', compact('id'))->with('asses', $asses);
         // dd($asses);
     }
 
